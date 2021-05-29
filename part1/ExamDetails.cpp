@@ -12,6 +12,6 @@ int factorial(int n)
 
 int main()
 {
-    cout << "Hello world!" << endl;
-    cout << "5! = " << factorial(5) << endl;
+    cout << "Hi world!" << endl;
+    cout << "6! = " << factorial(6) << endl;
 }
