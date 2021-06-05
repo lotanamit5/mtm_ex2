@@ -1,6 +1,6 @@
 #ifndef EXAMDETAILS_H_
 #define EXAMDETAILS_H_
-#include <string>
+#include <iostream>
 
 class ExamDetails
 {
@@ -9,6 +9,15 @@ class ExamDetails
     std::string zoom_link;
 
 public:
+    class InvalidDateException : public std::exception
+    {
+    };
+    class InvalidTimeException : public std::exception
+    {
+    };
+    class InvalidArgsException : public std::exception
+    {
+    };
     ExamDetails(int course_number, int month, int day, double hour, int length, std::string zoom_link = "");
     ExamDetails(const ExamDetails &exam);
     ~ExamDetails() = default;
@@ -18,8 +27,7 @@ public:
     int operator-(const ExamDetails &) const;
     bool operator<(const ExamDetails &) const;
     friend std::ostream &operator<<(std::ostream &, const ExamDetails &);
+    static ExamDetails makeMatamExam();
 };
-
-ExamDetails makeMatamExam();
 
 #endif
