@@ -1,6 +1,5 @@
 #ifndef EXAMDETAILS_H_
 #define EXAMDETAILS_H_
-#include <iostream>
 
 class ExamDetails
 {

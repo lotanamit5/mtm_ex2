@@ -1,12 +1,12 @@
 [
 {
-  "directory": "C:/Users/User/Documents/VS code/mtm_ex2/build",
-  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\mtm_ex2.dir\\part1\\ExamDetails.cpp.obj -c \"C:\\Users\\User\\Documents\\VS code\\mtm_ex2\\part1\\ExamDetails.cpp\"",
-  "file": "C:/Users/User/Documents/VS code/mtm_ex2/part1/ExamDetails.cpp"
+  "directory": "/home/nircoe/Desktop/mtm_ex2/build",
+  "command": "/usr/bin/c++   -g -std=gnu++11 -o CMakeFiles/mtm_ex2.dir/part1/ExamDetails.cpp.o -c /home/nircoe/Desktop/mtm_ex2/part1/ExamDetails.cpp",
+  "file": "/home/nircoe/Desktop/mtm_ex2/part1/ExamDetails.cpp"
 },
 {
-  "directory": "C:/Users/User/Documents/VS code/mtm_ex2/build",
-  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\mtm_ex2.dir\\part1\\part1_tests.cpp.obj -c \"C:\\Users\\User\\Documents\\VS code\\mtm_ex2\\part1\\part1_tests.cpp\"",
-  "file": "C:/Users/User/Documents/VS code/mtm_ex2/part1/part1_tests.cpp"
+  "directory": "/home/nircoe/Desktop/mtm_ex2/build",
+  "command": "/usr/bin/c++   -g -std=gnu++11 -o CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.o -c /home/nircoe/Desktop/mtm_ex2/part1/part1_tests.cpp",
+  "file": "/home/nircoe/Desktop/mtm_ex2/part1/part1_tests.cpp"
 }
 ]

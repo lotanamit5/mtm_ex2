@@ -2,10 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "mtm_ex2.exe"
-		},
-		{
-			"path" : "mtm_ex2.pdb"
+			"path" : "mtm_ex2"
 		}
 	],
 	"backtrace" : 1,
@@ -45,14 +42,6 @@
 				}
 			],
 			"language" : "CXX",
-			"languageStandard" : 
-			{
-				"backtraces" : 
-				[
-					1
-				],
-				"standard" : "11"
-			},
 			"sourceIndexes" : 
 			[
 				0,
@@ -70,18 +59,14 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "",
+				"fragment" : "-rdynamic",
 				"role" : "flags"
-			},
-			{
-				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
-				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "mtm_ex2",
-	"nameOnDisk" : "mtm_ex2.exe",
+	"nameOnDisk" : "mtm_ex2",
 	"paths" : 
 	{
 		"build" : ".",
