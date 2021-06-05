@@ -50,7 +50,7 @@ SortedList<T>::~SortedList()
     while(!this->head)
     {
         temp = this->head;
-        *(this->head) = Node<T>::getNext()
+        *(this->head) = this->head
         delete temp;
     }
 }
