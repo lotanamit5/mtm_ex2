@@ -23,6 +23,11 @@ public:
     ~ExamDetails() = default;
     ExamDetails &operator=(const ExamDetails &exam) = default;
     std::string getLink() const;
+    /**
+     * @brief 
+     * @param new_link
+     * @return (void)
+     */
     void setLink(std::string new_link);
     int operator-(const ExamDetails &) const;
     bool operator<(const ExamDetails &) const;

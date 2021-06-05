@@ -7,21 +7,16 @@ class Node
 {
     public :
     T data;
-    class Node* next;
-    class Node* previous;
+    class Node<T>* next;
+    class Node<T>* previous;
 
-    Node(T data_new, Node* next_new);
-    Node(const Node& node);
-    ~Node();
-    Node &operator=(const Node& node) = default;
+    Node(const T data_new);
+    Node(const Node<T>& node) = default;
+    ~Node() = default;
+    Node<T> &operator=(const Node<T>& node) = default;
 };
 
 template <class T>
-Node<T>::Node(T data_new, Node* next_new)
-{
-    this->data = data_new;
-    this->next = NULL;
-    this->previous = NULL;
-}
+Node<T>::Node(const T data_new) : data(data_new), next(NULL), previous(NULL) {}
 
 #endif

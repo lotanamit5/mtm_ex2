@@ -18,8 +18,8 @@ class SortedList
     ~SortedList();
     SortedList &operator=(const SortedList& list) = default;
 
-    void insert(const Node new_node); //maybe bool or exception
-    void remove(Node deleted_node); //maybe bool or exception, need iterator
+    void insert(const Node<T>* new_node); //maybe bool or exception
+    void remove(Node<T>* deleted_node); //maybe bool or exception, need iterator
     int length();
     //SortedList filter()
 };
@@ -34,7 +34,12 @@ SortedList<T>::SortedList()
 template <class T>
 SortedList<T>::SortedList(const SortedList& list)
 {
-    *(this->head) = Node<T>::Node((*list.head));
+    Node<T>* temp = list.head;
+    while(!temp)
+    {
+        this->insert(temp);
+        temp = temp->next;
+    }
     this->size = list.size;
 }
 
@@ -45,7 +50,7 @@ SortedList<T>::~SortedList()
     while(!this->head)
     {
         temp = this->head;
-        *(this->head) = Node<T>::getNext()
+        *(this->head) = this->head
         delete temp;
     }
 }
