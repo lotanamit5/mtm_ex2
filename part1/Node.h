@@ -4,15 +4,15 @@
 template <class T>
 class Node
 {
-    public :
+public:
     T data;
-    class Node<T>* next;
-    class Node<T>* previous;
+    class Node<T> *next;
+    class Node<T> *previous;
 
     Node(const T data_new);
-    Node(const Node<T>& node) = default;
+    Node(const Node<T> &node) = default;
     ~Node() = default;
-    Node<T> &operator=(const Node<T>& node) = default;
+    Node<T> &operator=(const Node<T> &node) = default;
 };
 
 template <class T>
