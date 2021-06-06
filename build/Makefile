@@ -155,29 +155,29 @@ part1/ExamDetails.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\mtm_ex2.dir\build.make CMakeFiles/mtm_ex2.dir/part1/ExamDetails.cpp.s
 .PHONY : part1/ExamDetails.cpp.s
 
-part1/part1_tests.obj: part1/part1_tests.cpp.obj
-.PHONY : part1/part1_tests.obj
+part1/part_a_test.obj: part1/part_a_test.cpp.obj
+.PHONY : part1/part_a_test.obj
 
 # target to build an object file
-part1/part1_tests.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\mtm_ex2.dir\build.make CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.obj
-.PHONY : part1/part1_tests.cpp.obj
+part1/part_a_test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mtm_ex2.dir\build.make CMakeFiles/mtm_ex2.dir/part1/part_a_test.cpp.obj
+.PHONY : part1/part_a_test.cpp.obj
 
-part1/part1_tests.i: part1/part1_tests.cpp.i
-.PHONY : part1/part1_tests.i
+part1/part_a_test.i: part1/part_a_test.cpp.i
+.PHONY : part1/part_a_test.i
 
 # target to preprocess a source file
-part1/part1_tests.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\mtm_ex2.dir\build.make CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.i
-.PHONY : part1/part1_tests.cpp.i
+part1/part_a_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mtm_ex2.dir\build.make CMakeFiles/mtm_ex2.dir/part1/part_a_test.cpp.i
+.PHONY : part1/part_a_test.cpp.i
 
-part1/part1_tests.s: part1/part1_tests.cpp.s
-.PHONY : part1/part1_tests.s
+part1/part_a_test.s: part1/part_a_test.cpp.s
+.PHONY : part1/part_a_test.s
 
 # target to generate assembly for a file
-part1/part1_tests.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\mtm_ex2.dir\build.make CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.s
-.PHONY : part1/part1_tests.cpp.s
+part1/part_a_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\mtm_ex2.dir\build.make CMakeFiles/mtm_ex2.dir/part1/part_a_test.cpp.s
+.PHONY : part1/part_a_test.cpp.s
 
 # Help Target
 help:
@@ -191,9 +191,9 @@ help:
 	@echo ... part1/ExamDetails.obj
 	@echo ... part1/ExamDetails.i
 	@echo ... part1/ExamDetails.s
-	@echo ... part1/part1_tests.obj
-	@echo ... part1/part1_tests.i
-	@echo ... part1/part1_tests.s
+	@echo ... part1/part_a_test.obj
+	@echo ... part1/part_a_test.i
+	@echo ... part1/part_a_test.s
 .PHONY : help
 
 

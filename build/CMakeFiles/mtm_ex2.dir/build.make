@@ -85,30 +85,30 @@ CMakeFiles/mtm_ex2.dir/part1/ExamDetails.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mtm_ex2.dir/part1/ExamDetails.cpp.s"
 	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\USER\OneDrive - Technion\Desktop\Studying\Semester B\Introduce to system programming\mtm_ex2\part1\ExamDetails.cpp" -o CMakeFiles\mtm_ex2.dir\part1\ExamDetails.cpp.s
 
-CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.obj: CMakeFiles/mtm_ex2.dir/flags.make
-CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.obj: ../part1/part1_tests.cpp
-CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.obj: CMakeFiles/mtm_ex2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\USER\OneDrive - Technion\Desktop\Studying\Semester B\Introduce to system programming\mtm_ex2\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.obj"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.obj -MF CMakeFiles\mtm_ex2.dir\part1\part1_tests.cpp.obj.d -o CMakeFiles\mtm_ex2.dir\part1\part1_tests.cpp.obj -c "C:\Users\USER\OneDrive - Technion\Desktop\Studying\Semester B\Introduce to system programming\mtm_ex2\part1\part1_tests.cpp"
+CMakeFiles/mtm_ex2.dir/part1/part_a_test.cpp.obj: CMakeFiles/mtm_ex2.dir/flags.make
+CMakeFiles/mtm_ex2.dir/part1/part_a_test.cpp.obj: ../part1/part_a_test.cpp
+CMakeFiles/mtm_ex2.dir/part1/part_a_test.cpp.obj: CMakeFiles/mtm_ex2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\USER\OneDrive - Technion\Desktop\Studying\Semester B\Introduce to system programming\mtm_ex2\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mtm_ex2.dir/part1/part_a_test.cpp.obj"
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mtm_ex2.dir/part1/part_a_test.cpp.obj -MF CMakeFiles\mtm_ex2.dir\part1\part_a_test.cpp.obj.d -o CMakeFiles\mtm_ex2.dir\part1\part_a_test.cpp.obj -c "C:\Users\USER\OneDrive - Technion\Desktop\Studying\Semester B\Introduce to system programming\mtm_ex2\part1\part_a_test.cpp"
 
-CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.i"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\USER\OneDrive - Technion\Desktop\Studying\Semester B\Introduce to system programming\mtm_ex2\part1\part1_tests.cpp" > CMakeFiles\mtm_ex2.dir\part1\part1_tests.cpp.i
+CMakeFiles/mtm_ex2.dir/part1/part_a_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mtm_ex2.dir/part1/part_a_test.cpp.i"
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\USER\OneDrive - Technion\Desktop\Studying\Semester B\Introduce to system programming\mtm_ex2\part1\part_a_test.cpp" > CMakeFiles\mtm_ex2.dir\part1\part_a_test.cpp.i
 
-CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.s"
-	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\USER\OneDrive - Technion\Desktop\Studying\Semester B\Introduce to system programming\mtm_ex2\part1\part1_tests.cpp" -o CMakeFiles\mtm_ex2.dir\part1\part1_tests.cpp.s
+CMakeFiles/mtm_ex2.dir/part1/part_a_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mtm_ex2.dir/part1/part_a_test.cpp.s"
+	C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\USER\OneDrive - Technion\Desktop\Studying\Semester B\Introduce to system programming\mtm_ex2\part1\part_a_test.cpp" -o CMakeFiles\mtm_ex2.dir\part1\part_a_test.cpp.s
 
 # Object files for target mtm_ex2
 mtm_ex2_OBJECTS = \
 "CMakeFiles/mtm_ex2.dir/part1/ExamDetails.cpp.obj" \
-"CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.obj"
+"CMakeFiles/mtm_ex2.dir/part1/part_a_test.cpp.obj"
 
 # External object files for target mtm_ex2
 mtm_ex2_EXTERNAL_OBJECTS =
 
 mtm_ex2.exe: CMakeFiles/mtm_ex2.dir/part1/ExamDetails.cpp.obj
-mtm_ex2.exe: CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.obj
+mtm_ex2.exe: CMakeFiles/mtm_ex2.dir/part1/part_a_test.cpp.obj
 mtm_ex2.exe: CMakeFiles/mtm_ex2.dir/build.make
 mtm_ex2.exe: CMakeFiles/mtm_ex2.dir/linklibs.rsp
 mtm_ex2.exe: CMakeFiles/mtm_ex2.dir/objects1.rsp
