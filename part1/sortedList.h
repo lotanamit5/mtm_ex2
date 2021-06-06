@@ -135,7 +135,7 @@ public:
     }
     const Node<T> &operator*() const
     {
-        return iterator
+        return iterator; //not done
     }
 };
 
