@@ -91,8 +91,7 @@ int SortedList<T>::length()
 template <class T>
 class SortedList<T>::const_iterator
 {
-    class Node<T> *iterator;
-
+    const Node<T> *iterator;
     const_iterator(Node<T> *node)
     {
         iterator = Node<T>::Node(*node);
@@ -103,29 +102,21 @@ public:
     const_iterator(const const_iterator &iterator_new) = default;
     ~const_iterator() = default;
     const_iterator &operator=(const const_iterator &iterator_new) = default;
-    const_iterator &operator++()
-    {
-        if (this->iterator->getNext() == nullptr)
-        {
-            throw std::out_of_range;
-        }
-        this->iterator = this->iterator->getNext();
-        return *this;
-    }
+    const_iterator &operator++();
     bool operator==(const const_iterator iterator_new) const;
     const Node<T> &operator*() const;
 };
 
-/*template <class T>
-SortedList<T>::const_iterator &SortedList<T>::const_iterator::operator++()
+template <class T>
+typename SortedList<T>::const_iterator &SortedList<T>::const_iterator::operator++()
 {
     if(this->iterator->getNext()==nullptr)
     {
-        throw std::out_of_range;
+        throw std::out_of_range("End of List");
     }
     this->iterator = this->iterator->getNext();
     return *this;
-}*/
+}
 
 template <class T>
 bool SortedList<T>::const_iterator::operator==(const SortedList<T>::const_iterator iterator_new) const
