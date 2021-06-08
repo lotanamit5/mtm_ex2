@@ -19,7 +19,7 @@ class Node
 };
 
 template <class T>
-Node<T>::Node(const T data_new) : data(data_new), next(NULL), previous(NULL) {}
+Node<T>::Node(const T data_new) : data(data_new), next(nullptr), previous(nullptr) {}
 
 template <class T>
 T Node<T>::getData() const
