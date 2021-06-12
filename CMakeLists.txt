@@ -18,6 +18,6 @@ set(CMAKE_CPP_FLAGS ${MTM_FLAGS_DEBUG})
 
 
 # Add the names of your source files here
-set(CPP_FILES ./part1/ExamDetails.cpp ./part1/part1_tests.cpp)
+set(CPP_FILES part1/ExamDetails part1/part_a_test)
 
 add_executable(mtm_ex2 ${CPP_FILES})

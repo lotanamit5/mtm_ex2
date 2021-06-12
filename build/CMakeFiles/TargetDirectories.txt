@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 /home/nircoe/Desktop/mtm_ex2/build/CMakeFiles/rebuild_cache.dir
 /home/nircoe/Desktop/mtm_ex2/build/CMakeFiles/mtm_ex2.dir
 /home/nircoe/Desktop/mtm_ex2/build/CMakeFiles/edit_cache.dir
+=======
+C:/Users/USER/OneDrive - Technion/Desktop/Studying/Semester B/Introduce to system programming/mtm_ex2/build/CMakeFiles/mtm_ex2.dir
+C:/Users/USER/OneDrive - Technion/Desktop/Studying/Semester B/Introduce to system programming/mtm_ex2/build/CMakeFiles/edit_cache.dir
+C:/Users/USER/OneDrive - Technion/Desktop/Studying/Semester B/Introduce to system programming/mtm_ex2/build/CMakeFiles/rebuild_cache.dir
+>>>>>>> e586528e92bc08f5fe618ef8931fe35b7860ec8a

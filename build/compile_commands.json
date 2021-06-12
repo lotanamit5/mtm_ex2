@@ -1,5 +1,6 @@
 [
 {
+<<<<<<< HEAD
   "directory": "/home/nircoe/Desktop/mtm_ex2/build",
   "command": "/usr/bin/c++   -g -std=gnu++11 -o CMakeFiles/mtm_ex2.dir/part1/ExamDetails.cpp.o -c /home/nircoe/Desktop/mtm_ex2/part1/ExamDetails.cpp",
   "file": "/home/nircoe/Desktop/mtm_ex2/part1/ExamDetails.cpp"
@@ -8,5 +9,15 @@
   "directory": "/home/nircoe/Desktop/mtm_ex2/build",
   "command": "/usr/bin/c++   -g -std=gnu++11 -o CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.o -c /home/nircoe/Desktop/mtm_ex2/part1/part1_tests.cpp",
   "file": "/home/nircoe/Desktop/mtm_ex2/part1/part1_tests.cpp"
+=======
+  "directory": "C:/Users/USER/OneDrive - Technion/Desktop/Studying/Semester B/Introduce to system programming/mtm_ex2/build",
+  "command": "C:\\TDM-GCC-64\\bin\\x86_64-w64-mingw32-g++.exe   -g -std=gnu++11 -o CMakeFiles\\mtm_ex2.dir\\part1\\ExamDetails.cpp.obj -c \"C:\\Users\\USER\\OneDrive - Technion\\Desktop\\Studying\\Semester B\\Introduce to system programming\\mtm_ex2\\part1\\ExamDetails.cpp\"",
+  "file": "C:/Users/USER/OneDrive - Technion/Desktop/Studying/Semester B/Introduce to system programming/mtm_ex2/part1/ExamDetails.cpp"
+},
+{
+  "directory": "C:/Users/USER/OneDrive - Technion/Desktop/Studying/Semester B/Introduce to system programming/mtm_ex2/build",
+  "command": "C:\\TDM-GCC-64\\bin\\x86_64-w64-mingw32-g++.exe   -g -std=gnu++11 -o CMakeFiles\\mtm_ex2.dir\\part1\\part_a_test.cpp.obj -c \"C:\\Users\\USER\\OneDrive - Technion\\Desktop\\Studying\\Semester B\\Introduce to system programming\\mtm_ex2\\part1\\part_a_test.cpp\"",
+  "file": "C:/Users/USER/OneDrive - Technion/Desktop/Studying/Semester B/Introduce to system programming/mtm_ex2/part1/part_a_test.cpp"
+>>>>>>> e586528e92bc08f5fe618ef8931fe35b7860ec8a
 }
 ]

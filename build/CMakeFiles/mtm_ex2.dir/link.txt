@@ -1,1 +1,7 @@
+<<<<<<< HEAD
 /usr/bin/c++ -g -rdynamic CMakeFiles/mtm_ex2.dir/part1/ExamDetails.cpp.o CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.o -o mtm_ex2 
+=======
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\mtm_ex2.dir/objects.a
+C:\TDM-GCC-64\bin\ar.exe cr CMakeFiles\mtm_ex2.dir/objects.a @CMakeFiles\mtm_ex2.dir\objects1.rsp
+C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe -g -Wl,--whole-archive CMakeFiles\mtm_ex2.dir/objects.a -Wl,--no-whole-archive -o mtm_ex2.exe -Wl,--out-implib,libmtm_ex2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\mtm_ex2.dir\linklibs.rsp
+>>>>>>> e586528e92bc08f5fe618ef8931fe35b7860ec8a
