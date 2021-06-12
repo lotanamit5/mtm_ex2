@@ -54,9 +54,9 @@ public:
     const_iterator end() const;
 
     template <typename predict>
-    SortedList<T> filter(predict func);
+    SortedList<T> filter(predict func) const;
     template <typename function>
-    SortedList<T> apply(function func);
+    SortedList<T> apply(function func) const;
 };
 
 template <class T>
@@ -188,7 +188,7 @@ int SortedList<T>::length()
 
 template <class T>
 template <typename predict>
-SortedList<T> SortedList<T>::filter(predict func)
+SortedList<T> SortedList<T>::filter(predict func) const
 {
     SortedList<T> new_list;
     for (Node<T> *node = this->head; node != nullptr; node = node->next)
@@ -203,7 +203,7 @@ SortedList<T> SortedList<T>::filter(predict func)
 
 template <class T>
 template <typename function>
-SortedList<T> SortedList<T>::apply(function func)
+SortedList<T> SortedList<T>::apply(function func) const
 {
     SortedList<T> new_list;
     for (Node<T> *node = this->head; node != nullptr; node = node->next)
