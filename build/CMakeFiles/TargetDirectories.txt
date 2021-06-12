@@ -1,3 +1,0 @@
-C:/Users/User/Documents/VS code/mtm_ex2/build/CMakeFiles/mtm_ex2.dir
-C:/Users/User/Documents/VS code/mtm_ex2/build/CMakeFiles/edit_cache.dir
-C:/Users/User/Documents/VS code/mtm_ex2/build/CMakeFiles/rebuild_cache.dir
