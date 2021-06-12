@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.0.0)
 set(CMAKE_CXX_STANDARD 11)
 
 # Set <PROJNAME> to be your project name. We set CXX (C++) here as the target language.
-project(mtm_ex2 VERSION 0.1.0 LANGUAGES CXX)
+project(HW2_part1 VERSION 0.1.0 LANGUAGES CXX)
 
 # If you want to see "under the hood" of CMake, uncomment this:
 set(CMAKE_VERBOSE_MAKEFILE ON)
@@ -18,10 +18,6 @@ set(CMAKE_CPP_FLAGS ${MTM_FLAGS_DEBUG})
 
 
 # Add the names of your source files here
-<<<<<<< HEAD
-set(CPP_FILES ./partB/Auxiliaries.cpp ./partB/Character.cpp ./partB/Exception.cpp)
-=======
-set(CPP_FILES part1/ExamDetails part1/part_a_test)
->>>>>>> e96d56d497b410e629645a29e8444c1c0ad715c2
+set(CPP_FILES ./examDetails.cpp ./part_a_test.cpp)
 
-add_executable(mtm_ex2 ${CPP_FILES})
+add_executable(mtm_ex2_part1 ${CPP_FILES})
