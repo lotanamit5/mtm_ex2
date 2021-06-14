@@ -4,6 +4,9 @@
 #include "Auxiliaries.h"
 #include "Character.h"
 
+#include <memory>
+#include <vector>
+
 namespace mtm
 {
     class Medic : public Character
@@ -17,7 +20,7 @@ namespace mtm
         std::shared_ptr<Character> clone() const override;
         void attack(std::vector<std::vector<std::shared_ptr<Character>>> &board,
                     const GridPoint &src_coordinates, const GridPoint &dst_coordinates) override;
-        CharacterType getType();
+        CharacterType getType() override;
     };
 }
 #endif

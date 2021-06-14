@@ -2,6 +2,8 @@
 #include "Exceptions.h"
 #include "Character.h"
 #include "Soldier.h"
+
+#include <memory>
 #include <vector>
 #include <cmath>
 
@@ -64,7 +66,7 @@ namespace mtm
         }
         ammo -= attack_cost;
     }
-    CharacterType getType()
+    CharacterType Soldier::getType() 
     {
         return CharacterType::SOLDIER;
     }

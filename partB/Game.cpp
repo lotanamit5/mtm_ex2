@@ -1,10 +1,13 @@
+#include "Exceptions.h"
+#include "Auxiliaries.h"
 #include "Game.h"
 #include "Character.h"
 #include "Soldier.h"
 #include "Sniper.h"
 #include "Medic.h"
-#include "Exceptions.h"
+
 #include <vector>
+#include <memory>
 
 #define SOLDIER_CHAR 's'
 #define MEDIC_CHAR 'm'
@@ -29,7 +32,7 @@ namespace mtm
                 current_character = other.board[i][j];
                 if (current_character)
                 {
-                    std::shared_ptr<Character> character_copy = current_character->clone();
+                    std::shared_ptr<Character> character_copy(current_character->clone()); // = current_character->clone();
                     board[i][j] = character_copy;
                 }
             }
@@ -69,20 +72,20 @@ namespace mtm
         board[coordinates.row][coordinates.col] = character;
     }
 
-    static std::shared_ptr<Character> makeCharacter(CharacterType type, Team team,
+    std::shared_ptr<Character> Game::makeCharacter(CharacterType type, Team team,
                                                     units_t health, units_t ammo, units_t range, units_t power)
     {
         std::shared_ptr<Character> character;
         switch (type)
         {
         case (CharacterType::SOLDIER):
-            character = std::make_shared<Character>(Soldier(health, ammo, range, power, team));
+            character = std::shared_ptr<Character>(new Soldier(health, ammo, range, power, team));
             break;
         case (CharacterType::SNIPER):
-            character = std::make_shared<Character>(Sniper(health, ammo, range, power, team));
+            character = std::shared_ptr<Character>(new Sniper(health, ammo, range, power, team));
             break;
         case (CharacterType::MEDIC):
-            character = std::make_shared<Character>(Medic(health, ammo, range, power, team));
+            character = std::shared_ptr<Character>(new Medic(health, ammo, range, power, team));
             break;
         default:
             throw illegalArgument();
@@ -165,13 +168,13 @@ namespace mtm
             {
                 switch (character->getType())
                 {
-                case CharacterType::SOLDIER:
+                case (CharacterType::SOLDIER):
                     current = SOLDIER_CHAR;
                     break;
-                case CharacterType::SNIPER:
+                case (CharacterType::SNIPER):
                     current = SNIPER_CHAR;
                     break;
-                case CharacterType::MEDIC:
+                case (CharacterType::MEDIC):
                     current = MEDIC_CHAR;
                     break;
                 default:

@@ -10,7 +10,7 @@ project(mtm_ex2 VERSION 0.1.0 LANGUAGES CXX)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
 # Define variables containing compiler flags for gcc
-set(MTM_FLAGS_DEBUG "-std=c++11 --pedantic-errors -Wall -Werror")
+set(MTM_FLAGS_DEBUG "-std=c++11 -pedantic-errors -Wall -Werror")
 set(MTM_FLAGS_RELEASE "${MTM_FLAGS_DEBUG} -DNDEBUG")
 
 # Set the flags for gcc
@@ -18,10 +18,7 @@ set(CMAKE_CPP_FLAGS ${MTM_FLAGS_DEBUG})
 
 
 # Add the names of your source files here
-<<<<<<< HEAD
-set(CPP_FILES ./partB/Auxiliaries.cpp ./partB/Character.cpp ./partB/Exception.cpp)
-=======
-set(CPP_FILES part1/ExamDetails part1/part_a_test)
->>>>>>> e96d56d497b410e629645a29e8444c1c0ad715c2
+set(CPP_FILES ./partB/Auxiliaries.cpp ./partB/Character.cpp ./partB/Medic.cpp ./partB/Sniper.cpp ./partB/Soldier.cpp ./partB/Game.cpp ./partB/Exceptions.cpp ./partB/gameTest.cpp)
+
 
 add_executable(mtm_ex2 ${CPP_FILES})

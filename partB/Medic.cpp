@@ -2,6 +2,8 @@
 #include "Exceptions.h"
 #include "Character.h"
 #include "Medic.h"
+
+#include <memory>
 #include <vector>
 
 #define MEDIC_MOVEMENT_RANGE 5
@@ -41,11 +43,10 @@ namespace mtm
         if (target->takeDamage(target->isEnemy(team) ? power : -power))
         {
             target.reset();
+            ammo -= attack_cost;
         }
-
-        ammo -= attack_cost;
     }
-    CharacterType getType()
+    CharacterType Medic::getType()
     {
         return CharacterType::MEDIC;
     }

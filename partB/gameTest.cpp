@@ -1,8 +1,8 @@
 #include <iostream>
-
 #include <cassert>
 
 #include "Exceptions.h"
+#include "Auxiliaries.h"
 #include "Game.h"
 
 using namespace mtm;

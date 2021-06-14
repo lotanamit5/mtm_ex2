@@ -2,6 +2,8 @@
 #include "Exceptions.h"
 #include "Character.h"
 #include "Sniper.h"
+
+#include <memory>
 #include <vector>
 #include <cmath>
 
@@ -37,13 +39,12 @@ namespace mtm
         }
 
         std::shared_ptr<Character> target = board.at(dst_coordinates.row).at(dst_coordinates.col);
-        if (!target)
+        if (!target || !target->isEnemy(team))
         {
             throw IllegalTarget();
         }
 
-        std::shared_ptr<Character> target = board.at(dst_coordinates.row).at(dst_coordinates.col);
-        if (target && target->isEnemy(team))
+        else
         {
             shots_fired++;
             if (target->takeDamage(shots_fired % 3 ? power : 2 * power))
@@ -51,13 +52,10 @@ namespace mtm
                 target.reset();
             }
         }
-        else
-        {
-            throw IllegalTarget();
-        }
+
         ammo -= attack_cost;
     }
-    CharacterType getType()
+    CharacterType Sniper::getType()
     {
         return CharacterType::SNIPER;
     }
