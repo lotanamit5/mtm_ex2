@@ -4,7 +4,9 @@
 #include "Soldier.h"
 
 #include <memory>
+#include <map>
 #include <vector>
+#include <iterator>
 #include <cmath>
 
 #define SOLDIER_MOVEMENT_RANGE 3
@@ -22,7 +24,7 @@ namespace mtm
         return ptr;
     }
 
-    void Soldier::attack(std::vector<std::vector<std::shared_ptr<Character>>> &board,
+    void Soldier::attack(std::map<GridPoint, Character *> &board,
                          const GridPoint &src_coordinates, const GridPoint &dst_coordinates)
     {
         attackInRange(src_coordinates, dst_coordinates);
@@ -35,38 +37,36 @@ namespace mtm
             throw IllegalTarget();
         }
 
-        std::shared_ptr<Character> target = board.at(dst_coordinates.row).at(dst_coordinates.col);
+        Character *target = board.at(dst_coordinates);
         if (target && target->isEnemy(team))
         {
             if (target->takeDamage(power))
             {
-                target.reset();
+                board.erase(dst_coordinates);
             }
         }
-        int r = 0, c = 0;
-        for (std::vector<std::shared_ptr<Character>> row : board)
+        std::vector<GridPoint> kills;
+        for (std::map<GridPoint, Character *>::iterator itr = board.begin(); itr != board.end(); ++itr)
         {
-            for (std::shared_ptr<Character> character : row)
+            if (GridPoint::distance(dst_coordinates, itr->first) <= (int)ceil((double)range / 3.0))
             {
-                GridPoint current_cell(r, c);
-                if (GridPoint::distance(dst_coordinates, current_cell) <= (int)ceil((double)range / 3.0))
+                Character *target = itr->second;
+                if (target && target->isEnemy(team))
                 {
-                    std::shared_ptr<Character> target = board.at(r).at(c);
-                    if (target && target->isEnemy(team))
+                    if (target->takeDamage((int)ceil((double)power / 2.0)))
                     {
-                        if (target->takeDamage((int)ceil((double)power / 2.0)))
-                        {
-                            target.reset();
-                        }
+                        kills.push_back(itr->first);
                     }
                 }
-                c++;
             }
-            r++;
+        }
+        for (GridPoint target : kills)
+        {
+            board.erase(target);
         }
         ammo -= attack_cost;
     }
-    CharacterType Soldier::getType() 
+    CharacterType Soldier::getType()
     {
         return CharacterType::SOLDIER;
     }

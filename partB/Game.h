@@ -4,14 +4,14 @@
 #include "Auxiliaries.h"
 #include "Character.h"
 #include <memory>
-#include <vector>
+#include <map>
 
 namespace mtm
 {
    class Game
    {
       int height, width;
-      std::vector<std::vector<std::shared_ptr<Character>>> board;
+      std::map<GridPoint, Character *> board;
       void checkCellInBoard(const GridPoint &coordinates);
       void checkCellOccupied(const GridPoint &coordinates);
       void checkcellIsntEmpty(const GridPoint &coordinates);

@@ -8,35 +8,51 @@ namespace mtm
     class Exception : public std::exception
     {
     public:
-        Exception();
+        Exception(std::string name);
         virtual ~Exception() noexcept = default;
         virtual const char *what() const noexcept;
-        std::string _msg;
+        char *msg;
     };
 
     class illegalArgument : public Exception
     {
+    public:
+        explicit illegalArgument();
     };
     class IllegalCell : public Exception
     {
+    public:
+        explicit IllegalCell();
     };
     class CellEmpty : public Exception
     {
+    public:
+        explicit CellEmpty();
     };
     class MoveTooFar : public Exception
     {
+    public:
+        explicit MoveTooFar();
     };
     class CellOccupied : public Exception
     {
+    public:
+        explicit CellOccupied();
     };
     class OutOfRange : public Exception
     {
+    public:
+        explicit OutOfRange();
     };
     class OutOfAmmo : public Exception
     {
+    public:
+        explicit OutOfAmmo();
     };
     class IllegalTarget : public Exception
     {
+    public:
+        explicit IllegalTarget();
     };
 }
 #endif

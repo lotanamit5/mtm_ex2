@@ -2,7 +2,7 @@
 #define CHARACTER_H
 
 #include "Auxiliaries.h"
-#include <vector>
+#include <map>
 #include <memory>
 
 namespace mtm
@@ -23,7 +23,7 @@ namespace mtm
         virtual ~Character() = default;
 
         virtual std::shared_ptr<Character> clone() const = 0;
-        virtual void attack(std::vector<std::vector<std::shared_ptr<Character>>> &board,
+        virtual void attack(std::map<GridPoint, Character *> &board,
                             const GridPoint &src_coordinates, const GridPoint &dst_coordinates) = 0;
         virtual void attackInRange(const GridPoint &src_coordinates, const GridPoint &dst_coordinates);
         virtual CharacterType getType() = 0;
@@ -31,8 +31,8 @@ namespace mtm
         bool isEnemy(Team team);
         bool takeDamage(int damage);
         bool legalMove(int length);
-        // virtual void legalAttack(std::vector<std::vector<std::shared_ptr<Character>>> &board,
-        //                          const GridPoint &src_coordinates, const GridPoint &dst_coordinates) = 0;
+
+        friend class Game;
     };
 }
 #endif

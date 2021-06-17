@@ -4,7 +4,7 @@
 #include "Sniper.h"
 
 #include <memory>
-#include <vector>
+#include <map>
 #include <cmath>
 
 #define MEDIC_MOVEMENT_RANGE 4
@@ -29,7 +29,7 @@ namespace mtm
             throw OutOfRange();
         }
     }
-    void Sniper::attack(std::vector<std::vector<std::shared_ptr<Character>>> &board,
+    void Sniper::attack(std::map<GridPoint, Character *> &board,
                         const GridPoint &src_coordinates, const GridPoint &dst_coordinates)
     {
         attackInRange(src_coordinates, dst_coordinates);
@@ -38,7 +38,7 @@ namespace mtm
             throw OutOfAmmo();
         }
 
-        std::shared_ptr<Character> target = board.at(dst_coordinates.row).at(dst_coordinates.col);
+        Character *target = board.at(dst_coordinates);
         if (!target || !target->isEnemy(team))
         {
             throw IllegalTarget();
@@ -49,7 +49,7 @@ namespace mtm
             shots_fired++;
             if (target->takeDamage(shots_fired % 3 ? power : 2 * power))
             {
-                target.reset();
+                board.erase(dst_coordinates);
             }
         }
 
