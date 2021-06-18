@@ -3,15 +3,23 @@
 
 #include "Auxiliaries.h"
 #include "Character.h"
+
 #include <memory>
 #include <map>
 
 namespace mtm
 {
+   struct classcomp
+   {
+      bool operator()(const GridPoint &g1, const GridPoint &g2) const
+      {
+         return (g1.row == g2.row) ? g1.col < g2.col : g1.row < g2.row;
+      }
+   };
    class Game
    {
       int height, width;
-      std::map<GridPoint, Character *> board;
+      std::map<GridPoint, std::shared_ptr<Character>, classcomp> board;
       void checkCellInBoard(const GridPoint &coordinates);
       void checkCellOccupied(const GridPoint &coordinates);
       void checkcellIsntEmpty(const GridPoint &coordinates);

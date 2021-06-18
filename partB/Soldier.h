@@ -5,7 +5,7 @@
 #include "Character.h"
 
 #include <memory>
-#include <vector>
+#include <map>
 
 namespace mtm
 {
@@ -18,7 +18,7 @@ namespace mtm
         ~Soldier() = default;
 
         std::shared_ptr<Character> clone() const override;
-        void attack(std::map<GridPoint, Character *> &board,
+        void attack(std::shared_ptr<Character> &board,
                     const GridPoint &src_coordinates, const GridPoint &dst_coordinates) override;
         CharacterType getType() override;
 

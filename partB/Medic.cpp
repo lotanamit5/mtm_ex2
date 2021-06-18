@@ -21,7 +21,7 @@ namespace mtm
         return ptr;
     }
 
-    void Medic::attack(std::map<GridPoint, Character *> &board,
+    void Medic::attack(std::map<GridPoint,std::shared_ptr<Character>> &board,
                        const GridPoint &src_coordinates, const GridPoint &dst_coordinates)
     {
         attackInRange(src_coordinates, dst_coordinates);
@@ -34,7 +34,7 @@ namespace mtm
             throw IllegalTarget();
         }
 
-        Character *target = board.at(dst_coordinates);
+        std::shared_ptr<Character> target = board.at(dst_coordinates);
         if (!target)
         {
             throw IllegalTarget();

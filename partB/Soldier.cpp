@@ -24,7 +24,7 @@ namespace mtm
         return ptr;
     }
 
-    void Soldier::attack(std::map<GridPoint, Character *> &board,
+    void Soldier::attack(std::map<GridPoint,std::shared_ptr<Character>> &board,
                          const GridPoint &src_coordinates, const GridPoint &dst_coordinates)
     {
         attackInRange(src_coordinates, dst_coordinates);
@@ -37,7 +37,7 @@ namespace mtm
             throw IllegalTarget();
         }
 
-        Character *target = board.at(dst_coordinates);
+        std::shared_ptr<Character> target = board.at(dst_coordinates);
         if (target && target->isEnemy(team))
         {
             if (target->takeDamage(power))
@@ -46,11 +46,11 @@ namespace mtm
             }
         }
         std::vector<GridPoint> kills;
-        for (std::map<GridPoint, Character *>::iterator itr = board.begin(); itr != board.end(); ++itr)
+        for (std::map<GridPoint,std::shared_ptr<Character>>::iterator itr = board.begin(); itr != board.end(); ++itr)
         {
             if (GridPoint::distance(dst_coordinates, itr->first) <= (int)ceil((double)range / 3.0))
             {
-                Character *target = itr->second;
+               target = itr->second;
                 if (target && target->isEnemy(team))
                 {
                     if (target->takeDamage((int)ceil((double)power / 2.0)))

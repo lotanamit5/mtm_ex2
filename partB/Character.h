@@ -23,7 +23,7 @@ namespace mtm
         virtual ~Character() = default;
 
         virtual std::shared_ptr<Character> clone() const = 0;
-        virtual void attack(std::map<GridPoint, Character *> &board,
+        virtual void attack(std::map<GridPoint, std::shared_ptr<Character>, classcomp> &board,
                             const GridPoint &src_coordinates, const GridPoint &dst_coordinates) = 0;
         virtual void attackInRange(const GridPoint &src_coordinates, const GridPoint &dst_coordinates);
         virtual CharacterType getType() = 0;
