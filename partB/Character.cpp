@@ -1,6 +1,6 @@
-#include "Character.h"
 #include "Auxiliaries.h"
 #include "Exceptions.h"
+#include "Character.h"
 
 namespace mtm
 {

@@ -24,7 +24,7 @@ namespace mtm
         return ptr;
     }
 
-    void Soldier::attack(std::map<GridPoint,std::shared_ptr<Character>> &board,
+    void Soldier::attack(std::map<GridPoint, std::shared_ptr<Character>, classcomp> &board,
                          const GridPoint &src_coordinates, const GridPoint &dst_coordinates)
     {
         attackInRange(src_coordinates, dst_coordinates);
@@ -46,7 +46,7 @@ namespace mtm
             }
         }
         std::vector<GridPoint> kills;
-        for (std::map<GridPoint,std::shared_ptr<Character>>::iterator itr = board.begin(); itr != board.end(); ++itr)
+        for (std::map<GridPoint, std::shared_ptr<Character>, classcomp>::iterator itr = board.begin(); itr != board.end(); ++itr)
         {
             if (GridPoint::distance(dst_coordinates, itr->first) <= (int)ceil((double)range / 3.0))
             {

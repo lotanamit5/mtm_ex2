@@ -21,7 +21,7 @@ namespace mtm
         return ptr;
     }
 
-    void Medic::attack(std::map<GridPoint,std::shared_ptr<Character>> &board,
+    void Medic::attack(std::map<GridPoint, std::shared_ptr<Character>, classcomp> &board,
                        const GridPoint &src_coordinates, const GridPoint &dst_coordinates)
     {
         attackInRange(src_coordinates, dst_coordinates);

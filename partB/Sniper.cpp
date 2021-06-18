@@ -29,7 +29,7 @@ namespace mtm
             throw OutOfRange();
         }
     }
-    void Sniper::attack(std::map<GridPoint, Character *> &board,
+    void Sniper::attack(std::map<GridPoint, std::shared_ptr<Character>, classcomp> &board,
                         const GridPoint &src_coordinates, const GridPoint &dst_coordinates)
     {
         attackInRange(src_coordinates, dst_coordinates);
@@ -38,7 +38,7 @@ namespace mtm
             throw OutOfAmmo();
         }
 
-        Character *target = board.at(dst_coordinates);
+        std::shared_ptr<Character> target = board.at(dst_coordinates);
         if (!target || !target->isEnemy(team))
         {
             throw IllegalTarget();

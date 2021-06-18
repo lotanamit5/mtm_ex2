@@ -18,7 +18,7 @@ namespace mtm
         ~Medic() = default;
 
         std::shared_ptr<Character> clone() const override;
-        void attack(std::map<GridPoint, Character *> &board,
+        void attack(std::map<GridPoint, std::shared_ptr<Character>, classcomp> &board,
                     const GridPoint &src_coordinates, const GridPoint &dst_coordinates) override;
         CharacterType getType() override;
     };

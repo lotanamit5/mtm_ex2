@@ -17,23 +17,17 @@
 
 namespace mtm
 {
-    struct classcomp
-   {
-      bool operator()(const GridPoint &g1, const GridPoint &g2) const
-      {
-         return (g1.row == g2.row) ? g1.col < g2.col : g1.row < g2.row;
-      }
-   };
+    
     Game::Game(int height, int width)
-        : height(height), width(width), board(std::map<GridPoint, std::shared_ptr<Character>,classcomp>())
+        : height(height), width(width), board(std::map<GridPoint, std::shared_ptr<Character>, classcomp>())
     {
         std::cout << "HI I created a game!" << std::endl;
     }
     Game::Game(const Game &other)
-        : height(other.height), width(other.width), board(std::map<GridPoint, std::shared_ptr<Character>,classcomp>())
+        : height(other.height), width(other.width), board(std::map<GridPoint, std::shared_ptr<Character>, classcomp>())
     {
         std::shared_ptr<Character> current_character, character_copy;
-        for (std::map<GridPoint, std::shared_ptr<Character>>::const_iterator itr = other.board.begin();
+        for (std::map<GridPoint, std::shared_ptr<Character>, classcomp>::const_iterator itr = other.board.begin();
              itr != other.board.end(); ++itr)
         {
             current_character = itr->second;
@@ -48,9 +42,9 @@ namespace mtm
     {
         this->height = other.height;
         this->height = other.width;
-        board = std::map<GridPoint, std::shared_ptr<Character>>();
+        board = std::map<GridPoint, std::shared_ptr<Character>, classcomp>();
         std::shared_ptr<Character> current_character, character_copy;
-        for (std::map<GridPoint, std::shared_ptr<Character>>::const_iterator itr = other.board.begin();
+        for (std::map<GridPoint, std::shared_ptr<Character>, classcomp>::const_iterator itr = other.board.begin();
              itr != other.board.end(); ++itr)
         {
             current_character = other.board.at(itr->first);
@@ -156,7 +150,7 @@ namespace mtm
     {
         Team first_found;
         std::shared_ptr<Character> character;
-        for (std::map<GridPoint, std::shared_ptr<Character>>::const_iterator itr = board.begin();
+        for (std::map<GridPoint, std::shared_ptr<Character>, classcomp>::const_iterator itr = board.begin();
              itr != board.end(); ++itr)
         {
             character = itr->second;
