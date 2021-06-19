@@ -18,7 +18,7 @@ set(CMAKE_CPP_FLAGS ${MTM_FLAGS_DEBUG})
 
 
 # Add the names of your source files here
-#set(CPP_FILES ./partB/Auxiliaries.cpp ./partB/Character.cpp ./partB/Medic.cpp ./partB/Sniper.cpp ./partB/Soldier.cpp ./partB/Game.cpp ./partB/Exceptions.cpp ./partB/gameTest.cpp)
-set(CPP_FILES ./part1/examDetails.cpp ./part1/main.cpp)
+set(CPP_FILES ./partB/Auxiliaries.cpp ./partB/Character.cpp ./partB/Medic.cpp ./partB/Sniper.cpp ./partB/Soldier.cpp ./partB/Game.cpp ./partB/Exceptions.cpp ./partB/gameTest.cpp)
+# ====== sortedList ======= set(CPP_FILES ./part1/examDetails.cpp ./part1/main.cpp)
 
-add_executable(mtm_ex2 ${CPP_FILES})
+add_executable(mtm_ex2_game ${CPP_FILES})
