@@ -9,11 +9,13 @@ using namespace mtm;
 
 void example1();
 void example2();
+void example3();
 
 int main()
 {
-    example1();
-    example2();
+    // example1();
+    // example2();
+    example3();
 }
 
 void example1()
@@ -29,9 +31,6 @@ void example1()
     std::cout << g1 << std::endl;
 
     g1.move(GridPoint(1, 1), GridPoint(1, 2));
-    
-    std::cout << "------HI------" << std::endl;
-
     std::cout << g1 << std::endl;
 
     try
@@ -245,5 +244,409 @@ void example2()
     g1.reload(GridPoint(3, 3)); // can reload twice - no problem (more ammo)
 
     g1.attack(GridPoint(3, 3), GridPoint(3, 6)); // medic dead, sniper not dead
+    std::cout << g1 << std::endl;
+}
+void example3()
+{
+    std::cout << "--------example 3 ---------" << std::endl;
+    Game g1(25, 6);
+
+    g1.addCharacter(GridPoint(10, 4), Game::makeCharacter(CharacterType::MEDIC, Team::CROSSFITTERS, 29, 14, 4, 3));
+    g1.addCharacter(GridPoint(19, 2), Game::makeCharacter(CharacterType::MEDIC, Team::CROSSFITTERS, 15, 14, 4, 3));
+    g1.addCharacter(GridPoint(24, 4), Game::makeCharacter(CharacterType::SNIPER, Team::CROSSFITTERS, 26, 16, 5, 9));
+    g1.addCharacter(GridPoint(9, 3), Game::makeCharacter(CharacterType::SOLDIER, Team::POWERLIFTERS, 22, 21, 9, 9));
+    g1.addCharacter(GridPoint(19, 3), Game::makeCharacter(CharacterType::SOLDIER, Team::POWERLIFTERS, 14, 9, 6, 1));
+    g1.addCharacter(GridPoint(11, 3), Game::makeCharacter(CharacterType::SOLDIER, Team::CROSSFITTERS, 5, 7, 8, 9));
+    g1.addCharacter(GridPoint(17, 5), Game::makeCharacter(CharacterType::SNIPER, Team::POWERLIFTERS, 20, 19, 6, 2));
+    try
+    {
+        g1.addCharacter(GridPoint(11, 3), Game::makeCharacter(CharacterType::SNIPER, Team::POWERLIFTERS, 20, 25, 9, 1));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    g1.addCharacter(GridPoint(17, 3), Game::makeCharacter(CharacterType::MEDIC, Team::POWERLIFTERS, 12, 29, 7, 2));
+    g1.addCharacter(GridPoint(23, 4), Game::makeCharacter(CharacterType::MEDIC, Team::POWERLIFTERS, 26, 14, 4, 4));
+    g1.addCharacter(GridPoint(19, 4), Game::makeCharacter(CharacterType::SNIPER, Team::POWERLIFTERS, 29, 27, 8, 3));
+    try
+    {
+        g1.attack(GridPoint(17, 5), GridPoint(17, 5));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    try
+    {
+        g1.move(GridPoint(10, 4), GridPoint(9, 5));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    try
+    {
+        g1.move(GridPoint(23, 4), GridPoint(19, 3));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    try
+    {
+        g1.attack(GridPoint(24, 4), GridPoint(24, 4));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    try
+    {
+        g1.attack(GridPoint(19, 4), GridPoint(19, 3));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(11, 3), GridPoint(19, 4));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    try
+    {
+        g1.move(GridPoint(19, 4), GridPoint(11, 5));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    try
+    {
+        g1.move(GridPoint(19, 3), GridPoint(24, 0));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    try
+    {
+        g1.attack(GridPoint(12, 6), GridPoint(17, 3));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    try
+    {
+        g1.attack(GridPoint(11, 3), GridPoint(19, 4));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(9, 5), GridPoint(19, 3));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    try
+    {
+        g1.attack(GridPoint(19, 3), GridPoint(9, 3));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    try
+    {
+        g1.attack(GridPoint(9, 5), GridPoint(19, 2));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(17, 3), GridPoint(23, 4));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    try
+    {
+        g1.move(GridPoint(19, 3), GridPoint(9, 4));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    try
+    {
+        g1.move(GridPoint(9, 3), GridPoint(24, 1));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    try
+    {
+        g1.move(GridPoint(9, 3), GridPoint(5, 1));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    try
+    {
+        g1.attack(GridPoint(17, 3), GridPoint(19, 3));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.move(GridPoint(9, 3), GridPoint(22, 5));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(19, 3), GridPoint(9, 3));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    try
+    {
+        g1.attack(GridPoint(24, 4), GridPoint(25, 2));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    try
+    {
+        g1.attack(GridPoint(9, 5), GridPoint(17, 3));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(19, 2), GridPoint(11, 3));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(19, 3), GridPoint(9, 3));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(19, 2), GridPoint(19, 4));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(17, 5), GridPoint(19, 3));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(19, 3), GridPoint(11, 3));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(19, 4), GridPoint(24, 4));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(9, 3), GridPoint(19, 4));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.move(GridPoint(17, 5), GridPoint(9, 4));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(24, 4), GridPoint(17, 5));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(23, 4), GridPoint(17, 5));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(19, 2), GridPoint(16, 0));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(11, 3), GridPoint(11, 3));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(9, 5), GridPoint(11, 3));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(24, 4), GridPoint(19, 4));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(17, 0), GridPoint(7, 0));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(17, 5), GridPoint(2, 1));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.move(GridPoint(24, 4), GridPoint(20, 4));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(19, 4), GridPoint(17, 5));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.reload(GridPoint(23, 4));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(19, 4), GridPoint(19, 4));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(19, 2), GridPoint(19, 3));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(11, 3), GridPoint(17, 3));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    try
+    {
+        g1.attack(GridPoint(30, 3), GridPoint(23, 4));
+    }
+    catch (mtm::Exception &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+
+    //line 57 game input 0
+
     std::cout << g1 << std::endl;
 }

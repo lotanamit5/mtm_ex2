@@ -10,7 +10,7 @@
 #include <cmath>
 
 #define SOLDIER_MOVEMENT_RANGE 3
-#define SOLDIER_RELOAD_AMOUNT 5
+#define SOLDIER_RELOAD_AMOUNT 3
 #define SOLDIER_ATTACK_COST 1
 
 namespace mtm
@@ -36,22 +36,27 @@ namespace mtm
         {
             throw IllegalTarget();
         }
-
-        std::shared_ptr<Character> target = board.at(dst_coordinates);
-        if (target && target->isEnemy(team))
+        std::shared_ptr<Character> target;
+        if (board.find(dst_coordinates) != board.end())
         {
-            if (target->takeDamage(power))
+            target = board.at(dst_coordinates);
+            if (target->isEnemy(team))
             {
-                board.erase(dst_coordinates);
+                if (target->takeDamage(power))
+                {
+                    board.erase(dst_coordinates);
+                }
             }
         }
         std::vector<GridPoint> kills;
+        int current_range;
         for (std::map<GridPoint, std::shared_ptr<Character>, classcomp>::iterator itr = board.begin(); itr != board.end(); ++itr)
         {
-            if (GridPoint::distance(dst_coordinates, itr->first) <= (int)ceil((double)range / 3.0))
+            current_range = GridPoint::distance(dst_coordinates, itr->first);
+            if (current_range != 0 && current_range <= (int)ceil((double)range / 3.0))
             {
-               target = itr->second;
-                if (target && target->isEnemy(team))
+                target = itr->second;
+                if (target->isEnemy(team))
                 {
                     if (target->takeDamage((int)ceil((double)power / 2.0)))
                     {
@@ -66,6 +71,7 @@ namespace mtm
         }
         ammo -= attack_cost;
     }
+    
     CharacterType Soldier::getType()
     {
         return CharacterType::SOLDIER;

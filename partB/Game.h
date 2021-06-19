@@ -13,12 +13,12 @@ namespace mtm
    {
       int height, width;
       std::map<GridPoint, std::shared_ptr<Character>, classcomp> board;
+
       void checkCellInBoard(const GridPoint &coordinates);
       void checkCellOccupied(const GridPoint &coordinates);
       void checkcellIsntEmpty(const GridPoint &coordinates);
       bool cellIsEmpty(const GridPoint &coordinates);
       std::string toString() const;
-      // friend class Character;
 
    public:
       /**

@@ -10,6 +10,12 @@ namespace mtm
 {
     struct classcomp
     {
+        /**
+         * @brief 
+         * @param GridPoint
+         * @param g2
+         * @return 
+         */
         bool operator()(const GridPoint &g1, const GridPoint &g2) const
         {
             return (g1.row == g2.row) ? g1.col < g2.col : g1.row < g2.row;

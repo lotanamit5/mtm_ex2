@@ -7,14 +7,14 @@
 #include <map>
 #include <cmath>
 
-#define MEDIC_MOVEMENT_RANGE 4
-#define MEDIC_RELOAD_AMOUNT 2
-#define MEDIC_ATTACK_COST 1
+#define SNIPER_MOVEMENT_RANGE 4
+#define SNIPER_RELOAD_AMOUNT 2
+#define SNIPER_ATTACK_COST 1
 
 namespace mtm
 {
     Sniper::Sniper(units_t health, units_t ammo, units_t range, units_t power, Team team)
-        : Character(health, ammo, range, power, MEDIC_MOVEMENT_RANGE, MEDIC_RELOAD_AMOUNT, MEDIC_ATTACK_COST, team), shots_fired(0) {}
+        : Character(health, ammo, range, power, SNIPER_MOVEMENT_RANGE, SNIPER_RELOAD_AMOUNT, SNIPER_ATTACK_COST, team), shots_fired(0) {}
 
     std::shared_ptr<Character> Sniper::clone() const
     {
@@ -24,7 +24,9 @@ namespace mtm
     void Sniper::attackInRange(const GridPoint &src_coordinates, const GridPoint &dst_coordinates)
     {
         Character::attackInRange(src_coordinates, dst_coordinates);
-        if (GridPoint::distance(dst_coordinates, src_coordinates) < (int)ceil((double)range / 2.0))
+        int n1 = GridPoint::distance(dst_coordinates, src_coordinates);
+        int n2 = (int)ceil((double)range / 2.0);
+        if (n1 < n2)
         {
             throw OutOfRange();
         }
@@ -38,22 +40,29 @@ namespace mtm
             throw OutOfAmmo();
         }
 
-        std::shared_ptr<Character> target = board.at(dst_coordinates);
-        if (!target || !target->isEnemy(team))
+        if (board.find(dst_coordinates) == board.end())
         {
             throw IllegalTarget();
         }
-
         else
         {
-            shots_fired++;
-            if (target->takeDamage(shots_fired % 3 ? power : 2 * power))
+            std::shared_ptr<Character> target = board.at(dst_coordinates);
+            if (!target->isEnemy(team))
             {
-                board.erase(dst_coordinates);
+                throw IllegalTarget();
             }
-        }
 
-        ammo -= attack_cost;
+            else
+            {
+                shots_fired++;
+                if (target->takeDamage(shots_fired % 3 ? power : 2 * power))
+                {
+                    board.erase(dst_coordinates);
+                }
+            }
+
+            ammo -= attack_cost;
+        }
     }
     CharacterType Sniper::getType()
     {

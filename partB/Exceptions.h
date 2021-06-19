@@ -9,15 +9,21 @@ namespace mtm
     {
     public:
         Exception(std::string name);
-        virtual ~Exception() noexcept = default;
+        ~Exception() noexcept
+        {
+            if(msg != nullptr)
+            {
+                delete[] msg;
+            }
+        }
         virtual const char *what() const noexcept;
         char *msg;
     };
 
-    class illegalArgument : public Exception
+    class IllegalArgument : public Exception
     {
     public:
-        explicit illegalArgument();
+        explicit IllegalArgument();
     };
     class IllegalCell : public Exception
     {

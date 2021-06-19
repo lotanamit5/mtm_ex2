@@ -21,6 +21,10 @@ namespace mtm
     Game::Game(int height, int width)
         : height(height), width(width), board(std::map<GridPoint, std::shared_ptr<Character>, classcomp>())
     {
+        if (height <= 0 || width <= 0)
+        {
+            throw IllegalArgument();
+        }
     }
     Game::Game(const Game &other)
         : height(other.height), width(other.width), board(std::map<GridPoint, std::shared_ptr<Character>, classcomp>())
@@ -30,49 +34,34 @@ namespace mtm
              itr != other.board.end(); ++itr)
         {
             current_character = itr->second;
-            if (current_character)
-            {
-                character_copy = current_character->clone();
-                this->board[itr->first] = character_copy; //I realy hope that works
-            }
+            character_copy = current_character->clone();
+            this->board.insert(make_pair(itr->first, character_copy));
         }
     }
     Game &Game::operator=(const Game &other)
     {
+        if (this == &other)
+        {
+            return *this;
+        }
         this->height = other.height;
-        this->height = other.width;
-        board = std::map<GridPoint, std::shared_ptr<Character>, classcomp>();
+        this->width = other.width;
+        this->board = std::map<GridPoint, std::shared_ptr<Character>, classcomp>();
         std::shared_ptr<Character> current_character, character_copy;
         for (std::map<GridPoint, std::shared_ptr<Character>, classcomp>::const_iterator itr = other.board.begin();
              itr != other.board.end(); ++itr)
         {
             current_character = other.board.at(itr->first);
-            if (current_character)
-            {
-                character_copy = current_character->clone();
-                board[itr->first] = character_copy;
-            }
+            character_copy = current_character->clone();
+            this->board.insert(make_pair(itr->first, character_copy));
         }
-        this->board = board;
+        //this->board = board;
         return *this;
     }
 
     bool Game::cellIsEmpty(const GridPoint &coordinates)
     {
-        board.find(coordinates);
-        bool res;
-        try
-        {
-            res = board[coordinates] != nullptr;
-        }
-        catch (const std::exception &e)
-        {
-            std::cerr << e.what() << '\n';
-        }
-
-        std::cout << "board cords: " << board[coordinates] << std::endl;
-        std::cout << "returning: " << board[coordinates] == nullptr << std::endl;
-        return board[coordinates] == nullptr;
+        return board.find(coordinates) == board.end();
     }
 
     void Game::checkCellInBoard(const GridPoint &coordinates)
@@ -101,7 +90,7 @@ namespace mtm
     {
         checkCellInBoard(coordinates);
         checkCellOccupied(coordinates);
-        board[coordinates] = character;
+        this->board.insert(make_pair(coordinates, character));
     }
 
     std::shared_ptr<Character> Game::makeCharacter(CharacterType type, Team team,
@@ -120,7 +109,7 @@ namespace mtm
             character = std::shared_ptr<Character>(new Medic(health, ammo, range, power, team));
             break;
         default:
-            throw illegalArgument();
+            throw IllegalArgument();
             break;
         }
         return character;
@@ -128,14 +117,11 @@ namespace mtm
 
     void Game::move(const GridPoint &src_coordinates, const GridPoint &dst_coordinates)
     {
-        std::cout << "HII" << std::endl;
         checkCellInBoard(src_coordinates);
         checkCellInBoard(dst_coordinates);
         checkcellIsntEmpty(src_coordinates);
 
         std::shared_ptr<Character> tmp_character = board.at(src_coordinates);
-        std::cout << "found character" << std::endl;
-
         if (!tmp_character->legalMove(GridPoint::distance(src_coordinates, dst_coordinates)))
         {
             throw MoveTooFar();
@@ -166,22 +152,24 @@ namespace mtm
     bool Game::isOver(Team *winningTeam) const
     {
         Team first_found;
+        bool found_player = false;
         std::shared_ptr<Character> character;
         for (std::map<GridPoint, std::shared_ptr<Character>, classcomp>::const_iterator itr = board.begin();
              itr != board.end(); ++itr)
         {
             character = itr->second;
-            if (!first_found && character)
+            if (!found_player)
             {
+                found_player = true;
                 first_found = character->isEnemy(Team::CROSSFITTERS) ? Team::POWERLIFTERS : Team::CROSSFITTERS;
             }
-            else if (first_found && character && character->isEnemy(first_found))
+            else if (found_player && character->isEnemy(first_found))
             {
                 return false;
             }
         }
 
-        if (first_found)
+        if (found_player)
         {
             if (winningTeam)
             {
@@ -222,7 +210,7 @@ namespace mtm
                         break;
                     }
 
-                    if (character->isEnemy(Team::POWERLIFTERS))
+                    if (character->isEnemy(Team::CROSSFITTERS))
                     {
                         current = toupper(current);
                     }

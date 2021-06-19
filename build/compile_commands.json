@@ -1,42 +1,42 @@
 [
 {
-  "directory": "C:/Users/User/Documents/VS code/mtm_ex2/build",
-  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\mtm_ex2.dir\\partB\\Auxiliaries.cpp.obj -c \"C:\\Users\\User\\Documents\\VS code\\mtm_ex2\\partB\\Auxiliaries.cpp\"",
-  "file": "C:/Users/User/Documents/VS code/mtm_ex2/partB/Auxiliaries.cpp"
+  "directory": "/home/nircoe/Desktop/mtm_ex2/build",
+  "command": "/usr/bin/c++   -g -std=gnu++11 -o CMakeFiles/mtm_ex2.dir/partB/Auxiliaries.cpp.o -c /home/nircoe/Desktop/mtm_ex2/partB/Auxiliaries.cpp",
+  "file": "/home/nircoe/Desktop/mtm_ex2/partB/Auxiliaries.cpp"
 },
 {
-  "directory": "C:/Users/User/Documents/VS code/mtm_ex2/build",
-  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\mtm_ex2.dir\\partB\\Character.cpp.obj -c \"C:\\Users\\User\\Documents\\VS code\\mtm_ex2\\partB\\Character.cpp\"",
-  "file": "C:/Users/User/Documents/VS code/mtm_ex2/partB/Character.cpp"
+  "directory": "/home/nircoe/Desktop/mtm_ex2/build",
+  "command": "/usr/bin/c++   -g -std=gnu++11 -o CMakeFiles/mtm_ex2.dir/partB/Character.cpp.o -c /home/nircoe/Desktop/mtm_ex2/partB/Character.cpp",
+  "file": "/home/nircoe/Desktop/mtm_ex2/partB/Character.cpp"
 },
 {
-  "directory": "C:/Users/User/Documents/VS code/mtm_ex2/build",
-  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\mtm_ex2.dir\\partB\\Medic.cpp.obj -c \"C:\\Users\\User\\Documents\\VS code\\mtm_ex2\\partB\\Medic.cpp\"",
-  "file": "C:/Users/User/Documents/VS code/mtm_ex2/partB/Medic.cpp"
+  "directory": "/home/nircoe/Desktop/mtm_ex2/build",
+  "command": "/usr/bin/c++   -g -std=gnu++11 -o CMakeFiles/mtm_ex2.dir/partB/Medic.cpp.o -c /home/nircoe/Desktop/mtm_ex2/partB/Medic.cpp",
+  "file": "/home/nircoe/Desktop/mtm_ex2/partB/Medic.cpp"
 },
 {
-  "directory": "C:/Users/User/Documents/VS code/mtm_ex2/build",
-  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\mtm_ex2.dir\\partB\\Sniper.cpp.obj -c \"C:\\Users\\User\\Documents\\VS code\\mtm_ex2\\partB\\Sniper.cpp\"",
-  "file": "C:/Users/User/Documents/VS code/mtm_ex2/partB/Sniper.cpp"
+  "directory": "/home/nircoe/Desktop/mtm_ex2/build",
+  "command": "/usr/bin/c++   -g -std=gnu++11 -o CMakeFiles/mtm_ex2.dir/partB/Sniper.cpp.o -c /home/nircoe/Desktop/mtm_ex2/partB/Sniper.cpp",
+  "file": "/home/nircoe/Desktop/mtm_ex2/partB/Sniper.cpp"
 },
 {
-  "directory": "C:/Users/User/Documents/VS code/mtm_ex2/build",
-  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\mtm_ex2.dir\\partB\\Soldier.cpp.obj -c \"C:\\Users\\User\\Documents\\VS code\\mtm_ex2\\partB\\Soldier.cpp\"",
-  "file": "C:/Users/User/Documents/VS code/mtm_ex2/partB/Soldier.cpp"
+  "directory": "/home/nircoe/Desktop/mtm_ex2/build",
+  "command": "/usr/bin/c++   -g -std=gnu++11 -o CMakeFiles/mtm_ex2.dir/partB/Soldier.cpp.o -c /home/nircoe/Desktop/mtm_ex2/partB/Soldier.cpp",
+  "file": "/home/nircoe/Desktop/mtm_ex2/partB/Soldier.cpp"
 },
 {
-  "directory": "C:/Users/User/Documents/VS code/mtm_ex2/build",
-  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\mtm_ex2.dir\\partB\\Game.cpp.obj -c \"C:\\Users\\User\\Documents\\VS code\\mtm_ex2\\partB\\Game.cpp\"",
-  "file": "C:/Users/User/Documents/VS code/mtm_ex2/partB/Game.cpp"
+  "directory": "/home/nircoe/Desktop/mtm_ex2/build",
+  "command": "/usr/bin/c++   -g -std=gnu++11 -o CMakeFiles/mtm_ex2.dir/partB/Game.cpp.o -c /home/nircoe/Desktop/mtm_ex2/partB/Game.cpp",
+  "file": "/home/nircoe/Desktop/mtm_ex2/partB/Game.cpp"
 },
 {
-  "directory": "C:/Users/User/Documents/VS code/mtm_ex2/build",
-  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\mtm_ex2.dir\\partB\\Exceptions.cpp.obj -c \"C:\\Users\\User\\Documents\\VS code\\mtm_ex2\\partB\\Exceptions.cpp\"",
-  "file": "C:/Users/User/Documents/VS code/mtm_ex2/partB/Exceptions.cpp"
+  "directory": "/home/nircoe/Desktop/mtm_ex2/build",
+  "command": "/usr/bin/c++   -g -std=gnu++11 -o CMakeFiles/mtm_ex2.dir/partB/Exceptions.cpp.o -c /home/nircoe/Desktop/mtm_ex2/partB/Exceptions.cpp",
+  "file": "/home/nircoe/Desktop/mtm_ex2/partB/Exceptions.cpp"
 },
 {
-  "directory": "C:/Users/User/Documents/VS code/mtm_ex2/build",
-  "command": "C:\\TDM-GCC-64\\bin\\g++.exe   -g -std=gnu++11 -o CMakeFiles\\mtm_ex2.dir\\partB\\gameTest.cpp.obj -c \"C:\\Users\\User\\Documents\\VS code\\mtm_ex2\\partB\\gameTest.cpp\"",
-  "file": "C:/Users/User/Documents/VS code/mtm_ex2/partB/gameTest.cpp"
+  "directory": "/home/nircoe/Desktop/mtm_ex2/build",
+  "command": "/usr/bin/c++   -g -std=gnu++11 -o CMakeFiles/mtm_ex2.dir/partB/gameTest.cpp.o -c /home/nircoe/Desktop/mtm_ex2/partB/gameTest.cpp",
+  "file": "/home/nircoe/Desktop/mtm_ex2/partB/gameTest.cpp"
 }
 ]
