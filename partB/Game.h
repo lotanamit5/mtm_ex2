@@ -14,10 +14,32 @@ namespace mtm
       int height, width;
       std::map<GridPoint, std::shared_ptr<Character>, classcomp> board;
 
+      /**
+       * @brief Validation function for checking if the coordinates are inside the board.
+       * @exception IllegalCell if the coordinates are not in board.
+       */
       void checkCellInBoard(const GridPoint &coordinates);
+      /**
+       * @brief Validation function for checking if a cell in the board has a character in it.
+       * @exception IllegalCell if the coordinates are not inside the board.
+       */
       void checkCellOccupied(const GridPoint &coordinates);
+      /**
+       * @brief Validation function for checking if a cell is not empty.
+       * @exception CellEmpty if the cell is empty.
+       */
       void checkcellIsntEmpty(const GridPoint &coordinates);
+      /**
+       * @brief Validation function for checking if a cell is empty.
+       * @return true if the cell is empty, false if not.
+       */
       bool cellIsEmpty(const GridPoint &coordinates);
+      /**
+       * @brief convert game board to string for printing purposes.
+       * @return std::string of the game with the following logic:
+       * 's' for soldier, 'n' for sniper, 'm' for medic, ' ' for empty cell.
+       * if the Character is from the Powerlifters team the letter is uppercased.
+       */
       std::string toString() const;
 
    public:
@@ -77,7 +99,7 @@ namespace mtm
      * @brief checks the board for a victory.
      * @param winningTeam=NULL is changed accordingaly, if no team won this is not changed.
      * @return 
-     * true if a teaam won (no characters left from the other team).
+     * true if a team won (no characters left from the other team).
      * false if no character left on board.
      */
       bool isOver(Team *winningTeam = NULL) const;

@@ -31,10 +31,6 @@ namespace mtm
         ~GridPoint() = default;
 
         GridPoint &operator=(const GridPoint &other) = default;
-        bool GridPoint::operator<(const GridPoint &other) const
-        {
-            return (this->row == other.row) ? this->col < other.col : this->row < other.row;
-        }
 
         bool operator==(const GridPoint &other) const
         {

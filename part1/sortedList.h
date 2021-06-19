@@ -9,9 +9,9 @@ namespace mtm
     template <class T>
     class SortedList;
 
-    /*=============================================================================================================*/
-    /*================================================ class Node =================================================*/
-    /*=============================================================================================================*/
+    /*=======================================================================*/
+    /*============================ class Node ===============================*/
+    /*=======================================================================*/
 
     template <class T>
     class Node
@@ -21,10 +21,31 @@ namespace mtm
         Node<T> *previous;
 
     public:
+        /**
+         * @brief delete the default constructor
+         * @param 
+         */
         Node() = delete;
+        /**
+         * @brief constructor with data parameter
+         * @param data_new
+         */
         Node(const T data_new);
+        /**
+         * @brief copy constructor
+         * @param node
+         */
         Node(const Node<T> &node) = default;
+        /**
+         * @brief default destructor
+         * @param 
+         */
         ~Node() = default;
+        /**
+         * @brief operator= for Node
+         * @param node
+         * @return Node<T>&
+         */
         Node<T> &operator=(const Node<T> &node) = default;
         friend class SortedList<T>;
     };
@@ -32,9 +53,9 @@ namespace mtm
     template <class T>
     Node<T>::Node(const T data_new) : data(data_new), next(nullptr), previous(nullptr) {}
 
-    /*=============================================================================================================*/
-    /*============================================ class SortedList ===============================================*/
-    /*=============================================================================================================*/
+    /*=======================================================================*/
+    /*========================= class SortedList ============================*/
+    /*=======================================================================*/
 
     template <class T>
     class SortedList
@@ -45,19 +66,66 @@ namespace mtm
     public:
         class const_iterator;
 
+        /**
+         * @brief SortedList constructor
+         */
         SortedList();
+        /**
+         * @brief SortedList copy constructor
+         * @param list
+         */
         SortedList(const SortedList<T> &list);
+        /**
+         * @brief SortedList destructor
+         */
         ~SortedList();
+        /**
+         * @brief SortedList operator=
+         * @param list
+         * @return SortedList<T>
+         */
         SortedList<T> &operator=(const SortedList<T> &list);
 
+        /**
+         * @brief insert new element to the list
+         * @param element
+         * @return true if success , false if doesn't
+         */
         bool insert(const T element);
+        /**
+         * @brief remove element from the list
+         * @param it
+         * @return true if success , false if doesn't
+         */
         bool remove(const SortedList<T>::const_iterator &it);
+        /**
+         * @brief get the length of the list
+         * @return int length
+         */
         int length();
+        /**
+         * @brief get the first iterator of the list
+         * @return const_iterator
+         */
         const_iterator begin() const;
+        /**
+         * @brief get the last iterator of the list
+         * @return const_iterator
+         */
         const_iterator end() const;
 
+        /**
+         * @brief filter the list with the predict func and return the filtered list
+         * @param func
+         * @return SortedList<T> after the filter
+         */
         template <typename predict>
         SortedList<T> filter(predict func) const;
+        /**
+         * @brief returns a new list after changes of the elements that made by the func function  
+         * @param func
+         * @return SortedList<T> after the apply
+         */
         template <typename function>
         SortedList<T> apply(function func) const;
     };
@@ -239,24 +307,63 @@ namespace mtm
         return const_iterator(node);
     }
 
-    /*=============================================================================================================*/
-    /*======================================== class const_iterator ===============================================*/
-    /*=============================================================================================================*/
+    /*=======================================================================*/
+    /*======================= class const_iterator ==========================*/
+    /*=======================================================================*/
 
     template <class T>
     class SortedList<T>::const_iterator
     {
         Node<T> *node;
+        /**
+         * @brief const_iterator constructor that get Node<T>*
+         * @param node_new
+         */
         const_iterator(Node<T> *node_new) : node(node_new){};
 
     public:
+        /**
+         * @brief The default constructor is deleted
+         * @param 
+         */
         const_iterator() = delete;
+        /**
+         * @brief const_iterator copy constructor
+         * @param iterator_new
+         */
         const_iterator(const const_iterator &iterator_new) = default;
+        /**
+         * @brief default destructor
+         * @param 
+         */
         ~const_iterator() = default;
+        /**
+         * @brief const_iterator operator=
+         * @param iterator_new
+         * @return const_iterator&
+         */
         const_iterator &operator=(const const_iterator &iterator_new) = default;
+        /**
+         * @brief const_iterator pre-fix operator ++
+         * @return const_iterator& with the ++ change
+         */
         const_iterator &operator++();
+        /**
+         * @brief const_iterator post-fix operator ++
+         * @param dummy int parameter
+         * @return const_iterator& without the ++ change
+         */
         const_iterator operator++(int);
+        /**
+         * @brief boolean operator== for const_iterator
+         * @param iterator_new
+         * @return true if identical , false if doesn't
+         */
         bool operator==(const const_iterator iterator_new) const;
+        /**
+         * @brief operator* for const_iterator
+         * @return the T data of the iterator 
+         */
         const T &operator*() const;
         friend class SortedList<T>;
     };
@@ -285,7 +392,8 @@ namespace mtm
     }
 
     template <class T>
-    bool SortedList<T>::const_iterator::operator==(const SortedList<T>::const_iterator iterator_new) const
+    bool SortedList<T>::const_iterator::operator==(
+        const SortedList<T>::const_iterator iterator_new) const
     {
         if ((this->node == nullptr && iterator_new.node != nullptr) ||
             ((this->node != nullptr && iterator_new.node == nullptr)))

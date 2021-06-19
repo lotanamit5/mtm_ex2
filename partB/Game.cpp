@@ -10,13 +10,12 @@
 #include <map>
 #include <iterator>
 
-#define SOLDIER_CHAR 's'
-#define MEDIC_CHAR 'm'
-#define SNIPER_CHAR 'n'
-#define EMPTY_CHAR ' '
-
 namespace mtm
 {
+    static const char SOLDIER_CHAR = 's';
+    static const char SNIPER_CHAR = 'n';
+    static const char MEDIC_CHAR = 'm';
+    static const char EMPTY_CHAR = ' ';
 
     Game::Game(int height, int width)
         : height(height), width(width), board(std::map<GridPoint, std::shared_ptr<Character>, classcomp>())
@@ -55,7 +54,6 @@ namespace mtm
             character_copy = current_character->clone();
             this->board.insert(make_pair(itr->first, character_copy));
         }
-        //this->board = board;
         return *this;
     }
 

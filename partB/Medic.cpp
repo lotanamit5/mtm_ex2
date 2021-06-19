@@ -6,12 +6,12 @@
 #include <memory>
 #include <map>
 
-#define MEDIC_MOVEMENT_RANGE 5
-#define MEDIC_RELOAD_AMOUNT 5
-#define MEDIC_ATTACK_COST 1
-
 namespace mtm
 {
+    static const int MEDIC_MOVEMENT_RANGE = 5;
+    static const int MEDIC_RELOAD_AMOUNT = 5;
+    static const int MEDIC_ATTACK_COST = 1;
+
     Medic::Medic(units_t health, units_t ammo, units_t range, units_t power, Team team)
         : Character(health, ammo, range, power, MEDIC_MOVEMENT_RANGE, MEDIC_RELOAD_AMOUNT, MEDIC_ATTACK_COST, team) {}
 

@@ -9,12 +9,12 @@
 #include <iterator>
 #include <cmath>
 
-#define SOLDIER_MOVEMENT_RANGE 3
-#define SOLDIER_RELOAD_AMOUNT 3
-#define SOLDIER_ATTACK_COST 1
-
 namespace mtm
 {
+    static const int SOLDIER_MOVEMENT_RANGE = 3;
+    static const int SOLDIER_RELOAD_AMOUNT = 3;
+    static const int SOLDIER_ATTACK_COST = 1;
+
     Soldier::Soldier(units_t health, units_t ammo, units_t range, units_t power, Team team)
         : Character(health, ammo, range, power, SOLDIER_MOVEMENT_RANGE, SOLDIER_RELOAD_AMOUNT, SOLDIER_ATTACK_COST, team) {}
 
@@ -71,7 +71,7 @@ namespace mtm
         }
         ammo -= attack_cost;
     }
-    
+
     CharacterType Soldier::getType()
     {
         return CharacterType::SOLDIER;

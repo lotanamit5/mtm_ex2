@@ -7,12 +7,12 @@
 #include <map>
 #include <cmath>
 
-#define SNIPER_MOVEMENT_RANGE 4
-#define SNIPER_RELOAD_AMOUNT 2
-#define SNIPER_ATTACK_COST 1
-
 namespace mtm
 {
+    static const int SNIPER_MOVEMENT_RANGE = 4;
+    static const int SNIPER_RELOAD_AMOUNT = 2;
+    static const int SNIPER_ATTACK_COST = 1;
+
     Sniper::Sniper(units_t health, units_t ammo, units_t range, units_t power, Team team)
         : Character(health, ammo, range, power, SNIPER_MOVEMENT_RANGE, SNIPER_RELOAD_AMOUNT, SNIPER_ATTACK_COST, team), shots_fired(0) {}
 
