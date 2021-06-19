@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-# Install script for directory: /home/nircoe/Desktop/mtm_ex2
-
-# Set the install prefix
-if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
-=======
-# Install script for directory: C:/Users/USER/OneDrive - Technion/Desktop/Studying/Semester B/Introduce to system programming/mtm_ex2
+# Install script for directory: C:/Users/User/Documents/VS code/mtm_ex2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
   set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/mtm_ex2")
->>>>>>> e586528e92bc08f5fe618ef8931fe35b7860ec8a
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -35,14 +27,6 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
-<<<<<<< HEAD
-# Install shared libraries without execute permission?
-if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "0")
-endif()
-
-=======
->>>>>>> e586528e92bc08f5fe618ef8931fe35b7860ec8a
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
@@ -50,11 +34,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-<<<<<<< HEAD
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
-=======
   set(CMAKE_OBJDUMP "C:/TDM-GCC-64/bin/objdump.exe")
->>>>>>> e586528e92bc08f5fe618ef8931fe35b7860ec8a
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -65,9 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-<<<<<<< HEAD
-file(WRITE "/home/nircoe/Desktop/mtm_ex2/build/${CMAKE_INSTALL_MANIFEST}"
-=======
-file(WRITE "C:/Users/USER/OneDrive - Technion/Desktop/Studying/Semester B/Introduce to system programming/mtm_ex2/build/${CMAKE_INSTALL_MANIFEST}"
->>>>>>> e586528e92bc08f5fe618ef8931fe35b7860ec8a
+file(WRITE "C:/Users/User/Documents/VS code/mtm_ex2/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

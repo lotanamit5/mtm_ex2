@@ -1,17 +1,23 @@
 file(REMOVE_RECURSE
-<<<<<<< HEAD
-  "CMakeFiles/mtm_ex2.dir/part1/ExamDetails.cpp.o"
-  "CMakeFiles/mtm_ex2.dir/part1/part1_tests.cpp.o"
-  "mtm_ex2"
-=======
-  "CMakeFiles/mtm_ex2.dir/part1/ExamDetails.cpp.obj"
-  "CMakeFiles/mtm_ex2.dir/part1/ExamDetails.cpp.obj.d"
-  "CMakeFiles/mtm_ex2.dir/part1/part_a_test.cpp.obj"
-  "CMakeFiles/mtm_ex2.dir/part1/part_a_test.cpp.obj.d"
+  "CMakeFiles/mtm_ex2.dir/partB/Auxiliaries.cpp.obj"
+  "CMakeFiles/mtm_ex2.dir/partB/Auxiliaries.cpp.obj.d"
+  "CMakeFiles/mtm_ex2.dir/partB/Character.cpp.obj"
+  "CMakeFiles/mtm_ex2.dir/partB/Character.cpp.obj.d"
+  "CMakeFiles/mtm_ex2.dir/partB/Exceptions.cpp.obj"
+  "CMakeFiles/mtm_ex2.dir/partB/Exceptions.cpp.obj.d"
+  "CMakeFiles/mtm_ex2.dir/partB/Game.cpp.obj"
+  "CMakeFiles/mtm_ex2.dir/partB/Game.cpp.obj.d"
+  "CMakeFiles/mtm_ex2.dir/partB/Medic.cpp.obj"
+  "CMakeFiles/mtm_ex2.dir/partB/Medic.cpp.obj.d"
+  "CMakeFiles/mtm_ex2.dir/partB/Sniper.cpp.obj"
+  "CMakeFiles/mtm_ex2.dir/partB/Sniper.cpp.obj.d"
+  "CMakeFiles/mtm_ex2.dir/partB/Soldier.cpp.obj"
+  "CMakeFiles/mtm_ex2.dir/partB/Soldier.cpp.obj.d"
+  "CMakeFiles/mtm_ex2.dir/partB/gameTest.cpp.obj"
+  "CMakeFiles/mtm_ex2.dir/partB/gameTest.cpp.obj.d"
   "libmtm_ex2.dll.a"
   "mtm_ex2.exe"
   "mtm_ex2.exe.manifest"
->>>>>>> e586528e92bc08f5fe618ef8931fe35b7860ec8a
   "mtm_ex2.pdb"
 )
 

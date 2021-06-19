@@ -161,6 +161,10 @@ namespace mtm
     template <class T>
     bool SortedList<T>::remove(const SortedList<T>::const_iterator &it)
     {
+        if (it.node == nullptr)
+        {
+            throw std::out_of_range("End of List");
+        }
         for (Node<T> *node = this->head; node != nullptr; node = node->next)
         {
             if ((node->previous == it.node->previous) &&
