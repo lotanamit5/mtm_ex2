@@ -20,13 +20,18 @@ void example1()
 {
     std::cout << "------example 1------" << std::endl;
     Game g1(8, 8);
+
     g1.addCharacter(GridPoint(1, 1), Game::makeCharacter(CharacterType::MEDIC, Team::POWERLIFTERS, 10, 2, 4, 5));
     g1.addCharacter(GridPoint(1, 4), Game::makeCharacter(CharacterType::SNIPER, Team::POWERLIFTERS, 10, 2, 4, 5));
     g1.addCharacter(GridPoint(6, 1), Game::makeCharacter(CharacterType::SOLDIER, Team::CROSSFITTERS, 10, 2, 4, 5));
     g1.addCharacter(GridPoint(6, 4), Game::makeCharacter(CharacterType::MEDIC, Team::CROSSFITTERS, 10, 2, 4, 5));
 
     std::cout << g1 << std::endl;
+
     g1.move(GridPoint(1, 1), GridPoint(1, 2));
+    
+    std::cout << "------HI------" << std::endl;
+
     std::cout << g1 << std::endl;
 
     try

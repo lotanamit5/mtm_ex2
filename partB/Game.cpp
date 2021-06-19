@@ -17,11 +17,10 @@
 
 namespace mtm
 {
-    
+
     Game::Game(int height, int width)
         : height(height), width(width), board(std::map<GridPoint, std::shared_ptr<Character>, classcomp>())
     {
-        std::cout << "HI I created a game!" << std::endl;
     }
     Game::Game(const Game &other)
         : height(other.height), width(other.width), board(std::map<GridPoint, std::shared_ptr<Character>, classcomp>())
@@ -60,6 +59,19 @@ namespace mtm
 
     bool Game::cellIsEmpty(const GridPoint &coordinates)
     {
+        board.find(coordinates);
+        bool res;
+        try
+        {
+            res = board[coordinates] != nullptr;
+        }
+        catch (const std::exception &e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+
+        std::cout << "board cords: " << board[coordinates] << std::endl;
+        std::cout << "returning: " << board[coordinates] == nullptr << std::endl;
         return board[coordinates] == nullptr;
     }
 
@@ -116,14 +128,19 @@ namespace mtm
 
     void Game::move(const GridPoint &src_coordinates, const GridPoint &dst_coordinates)
     {
+        std::cout << "HII" << std::endl;
         checkCellInBoard(src_coordinates);
         checkCellInBoard(dst_coordinates);
         checkcellIsntEmpty(src_coordinates);
+
         std::shared_ptr<Character> tmp_character = board.at(src_coordinates);
+        std::cout << "found character" << std::endl;
+
         if (!tmp_character->legalMove(GridPoint::distance(src_coordinates, dst_coordinates)))
         {
             throw MoveTooFar();
         }
+
         checkCellOccupied(dst_coordinates);
         board.erase(src_coordinates);
         board[dst_coordinates] = tmp_character;
@@ -187,13 +204,9 @@ namespace mtm
         {
             for (int j = 0; j < width; ++j)
             {
-                character = board.at(GridPoint(i, j));
-                if (!character)
+                try
                 {
-                    current = EMPTY_CHAR;
-                }
-                else
-                {
+                    character = board.at(GridPoint(i, j));
                     switch (character->getType())
                     {
                     case (CharacterType::SOLDIER):
@@ -209,10 +222,14 @@ namespace mtm
                         break;
                     }
 
-                    if (character->isEnemy(Team::CROSSFITTERS))
+                    if (character->isEnemy(Team::POWERLIFTERS))
                     {
                         current = toupper(current);
                     }
+                }
+                catch (const std::out_of_range &e)
+                {
+                    current = EMPTY_CHAR;
                 }
                 output.push_back(current);
             }
@@ -223,7 +240,7 @@ namespace mtm
     std::ostream &operator<<(std::ostream &os, const Game &game)
     {
         std::string out = game.toString();
-        printGameBoard(os, &out.at(0), &out.at(out.length()), game.width);
+        printGameBoard(os, &*out.begin(), &*out.end(), game.width);
         return os;
     }
 }
