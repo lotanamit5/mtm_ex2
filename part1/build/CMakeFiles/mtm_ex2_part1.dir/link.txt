@@ -1,1 +1,1 @@
-/usr/bin/c++ -g -rdynamic CMakeFiles/mtm_ex2_part1.dir/examDetails.cpp.o CMakeFiles/mtm_ex2_part1.dir/part_a_test.cpp.o -o mtm_ex2_part1 
+/usr/bin/c++ -g -rdynamic CMakeFiles/mtm_ex2_part1.dir/examDetails.cpp.o CMakeFiles/mtm_ex2_part1.dir/main.cpp.o -o mtm_ex2_part1 

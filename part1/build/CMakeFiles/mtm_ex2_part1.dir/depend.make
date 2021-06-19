@@ -4,7 +4,7 @@
 CMakeFiles/mtm_ex2_part1.dir/examDetails.cpp.o: ../examDetails.cpp
 CMakeFiles/mtm_ex2_part1.dir/examDetails.cpp.o: ../examDetails.h
 
-CMakeFiles/mtm_ex2_part1.dir/part_a_test.cpp.o: ../examDetails.h
-CMakeFiles/mtm_ex2_part1.dir/part_a_test.cpp.o: ../part_a_test.cpp
-CMakeFiles/mtm_ex2_part1.dir/part_a_test.cpp.o: ../sortedList.h
+CMakeFiles/mtm_ex2_part1.dir/main.cpp.o: ../main.cpp
+CMakeFiles/mtm_ex2_part1.dir/main.cpp.o: ../sortedList.h
+CMakeFiles/mtm_ex2_part1.dir/main.cpp.o: ../testClass.h
 

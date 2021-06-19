@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/mtm_ex2_part1.dir/examDetails.cpp.o"
-  "CMakeFiles/mtm_ex2_part1.dir/part_a_test.cpp.o"
+  "CMakeFiles/mtm_ex2_part1.dir/main.cpp.o"
   "mtm_ex2_part1"
   "mtm_ex2_part1.pdb"
 )

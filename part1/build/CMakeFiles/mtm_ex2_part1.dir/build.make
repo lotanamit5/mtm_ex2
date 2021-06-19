@@ -92,29 +92,29 @@ CMakeFiles/mtm_ex2_part1.dir/examDetails.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mtm_ex2_part1.dir/examDetails.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nircoe/Desktop/mtm_ex2/part1/examDetails.cpp -o CMakeFiles/mtm_ex2_part1.dir/examDetails.cpp.s
 
-CMakeFiles/mtm_ex2_part1.dir/part_a_test.cpp.o: CMakeFiles/mtm_ex2_part1.dir/flags.make
-CMakeFiles/mtm_ex2_part1.dir/part_a_test.cpp.o: ../part_a_test.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nircoe/Desktop/mtm_ex2/part1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mtm_ex2_part1.dir/part_a_test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mtm_ex2_part1.dir/part_a_test.cpp.o -c /home/nircoe/Desktop/mtm_ex2/part1/part_a_test.cpp
+CMakeFiles/mtm_ex2_part1.dir/main.cpp.o: CMakeFiles/mtm_ex2_part1.dir/flags.make
+CMakeFiles/mtm_ex2_part1.dir/main.cpp.o: ../main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nircoe/Desktop/mtm_ex2/part1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mtm_ex2_part1.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mtm_ex2_part1.dir/main.cpp.o -c /home/nircoe/Desktop/mtm_ex2/part1/main.cpp
 
-CMakeFiles/mtm_ex2_part1.dir/part_a_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mtm_ex2_part1.dir/part_a_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nircoe/Desktop/mtm_ex2/part1/part_a_test.cpp > CMakeFiles/mtm_ex2_part1.dir/part_a_test.cpp.i
+CMakeFiles/mtm_ex2_part1.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mtm_ex2_part1.dir/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nircoe/Desktop/mtm_ex2/part1/main.cpp > CMakeFiles/mtm_ex2_part1.dir/main.cpp.i
 
-CMakeFiles/mtm_ex2_part1.dir/part_a_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mtm_ex2_part1.dir/part_a_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nircoe/Desktop/mtm_ex2/part1/part_a_test.cpp -o CMakeFiles/mtm_ex2_part1.dir/part_a_test.cpp.s
+CMakeFiles/mtm_ex2_part1.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mtm_ex2_part1.dir/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nircoe/Desktop/mtm_ex2/part1/main.cpp -o CMakeFiles/mtm_ex2_part1.dir/main.cpp.s
 
 # Object files for target mtm_ex2_part1
 mtm_ex2_part1_OBJECTS = \
 "CMakeFiles/mtm_ex2_part1.dir/examDetails.cpp.o" \
-"CMakeFiles/mtm_ex2_part1.dir/part_a_test.cpp.o"
+"CMakeFiles/mtm_ex2_part1.dir/main.cpp.o"
 
 # External object files for target mtm_ex2_part1
 mtm_ex2_part1_EXTERNAL_OBJECTS =
 
 mtm_ex2_part1: CMakeFiles/mtm_ex2_part1.dir/examDetails.cpp.o
-mtm_ex2_part1: CMakeFiles/mtm_ex2_part1.dir/part_a_test.cpp.o
+mtm_ex2_part1: CMakeFiles/mtm_ex2_part1.dir/main.cpp.o
 mtm_ex2_part1: CMakeFiles/mtm_ex2_part1.dir/build.make
 mtm_ex2_part1: CMakeFiles/mtm_ex2_part1.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nircoe/Desktop/mtm_ex2/part1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable mtm_ex2_part1"
