@@ -1,20 +1,26 @@
 #include "Exceptions.h"
 #include <string>
+#include <cstring>
 
 namespace mtm
 {
-    Exception::Exception()
+    Exception::Exception(std::string name)
     {
-        _msg = "A game related error has occurred: ";
-        _msg.append(typeid(this).name());
+        std::string msg_s = "A game related error has occurred: " + name;
+        msg = new char[msg_s.length() + 1];
+        strcpy(msg, msg_s.c_str());
     }
     const char *Exception::what() const noexcept
     {
-        return _msg.c_str();
+        return msg;
     }
-    // const char *Exception::what() const
-    // {
-    //     char *error;
-    //     std::string err = (std::string) return err;
-    // }
+
+    IllegalArgument::IllegalArgument() : Exception("IllegalArgument") {}
+    IllegalCell::IllegalCell() : Exception("IllegalCell") {}
+    CellEmpty::CellEmpty() : Exception("CellEmpty") {}
+    MoveTooFar::MoveTooFar() : Exception("MoveTooFar") {}
+    CellOccupied::CellOccupied() : Exception("CellOccupied") {}
+    OutOfRange::OutOfRange() : Exception("OutOfRange") {}
+    OutOfAmmo::OutOfAmmo() : Exception("OutOfAmmo") {}
+    IllegalTarget::IllegalTarget() : Exception("IllegalTarget") {}
 }

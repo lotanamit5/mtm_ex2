@@ -6,41 +6,62 @@
 #include "Sniper.h"
 #include "Medic.h"
 
-#include <vector>
 #include <memory>
+#include <map>
+#include <iterator>
 
 #define SOLDIER_CHAR 's'
 #define MEDIC_CHAR 'm'
 #define SNIPER_CHAR 'n'
+#define EMPTY_CHAR ' '
 
 namespace mtm
 {
+
     Game::Game(int height, int width)
-        : height(height), width(width)
+        : height(height), width(width), board(std::map<GridPoint, std::shared_ptr<Character>, classcomp>())
     {
-        board = std::vector<std::vector<std::shared_ptr<Character>>>(height, std::vector<std::shared_ptr<Character>>(width, nullptr));
-    }
-    Game::Game(const Game &other)
-        : height(other.height), width(other.width)
-    {
-        board = std::vector<std::vector<std::shared_ptr<Character>>>(height, std::vector<std::shared_ptr<Character>>(width, nullptr));
-        std::shared_ptr<Character> current_character;
-        for (int i = 0; i < height; i++)
+        if (height <= 0 || width <= 0)
         {
-            for (int j = 0; j < width; j++)
-            {
-                current_character = other.board[i][j];
-                if (current_character)
-                {
-                    std::shared_ptr<Character> character_copy(current_character->clone()); // = current_character->clone();
-                    board[i][j] = character_copy;
-                }
-            }
+            throw IllegalArgument();
         }
     }
+    Game::Game(const Game &other)
+        : height(other.height), width(other.width), board(std::map<GridPoint, std::shared_ptr<Character>, classcomp>())
+    {
+        std::shared_ptr<Character> current_character, character_copy;
+        for (std::map<GridPoint, std::shared_ptr<Character>, classcomp>::const_iterator itr = other.board.begin();
+             itr != other.board.end(); ++itr)
+        {
+            current_character = itr->second;
+            character_copy = current_character->clone();
+            this->board.insert(make_pair(itr->first, character_copy));
+        }
+    }
+    Game &Game::operator=(const Game &other)
+    {
+        if (this == &other)
+        {
+            return *this;
+        }
+        this->height = other.height;
+        this->width = other.width;
+        this->board = std::map<GridPoint, std::shared_ptr<Character>, classcomp>();
+        std::shared_ptr<Character> current_character, character_copy;
+        for (std::map<GridPoint, std::shared_ptr<Character>, classcomp>::const_iterator itr = other.board.begin();
+             itr != other.board.end(); ++itr)
+        {
+            current_character = other.board.at(itr->first);
+            character_copy = current_character->clone();
+            this->board.insert(make_pair(itr->first, character_copy));
+        }
+        //this->board = board;
+        return *this;
+    }
+
     bool Game::cellIsEmpty(const GridPoint &coordinates)
     {
-        return board[coordinates.row][coordinates.col] == nullptr;
+        return board.find(coordinates) == board.end();
     }
 
     void Game::checkCellInBoard(const GridPoint &coordinates)
@@ -69,11 +90,11 @@ namespace mtm
     {
         checkCellInBoard(coordinates);
         checkCellOccupied(coordinates);
-        board[coordinates.row][coordinates.col] = character;
+        this->board.insert(make_pair(coordinates, character));
     }
 
     std::shared_ptr<Character> Game::makeCharacter(CharacterType type, Team team,
-                                                    units_t health, units_t ammo, units_t range, units_t power)
+                                                   units_t health, units_t ammo, units_t range, units_t power)
     {
         std::shared_ptr<Character> character;
         switch (type)
@@ -88,7 +109,7 @@ namespace mtm
             character = std::shared_ptr<Character>(new Medic(health, ammo, range, power, team));
             break;
         default:
-            throw illegalArgument();
+            throw IllegalArgument();
             break;
         }
         return character;
@@ -99,15 +120,16 @@ namespace mtm
         checkCellInBoard(src_coordinates);
         checkCellInBoard(dst_coordinates);
         checkcellIsntEmpty(src_coordinates);
-        std::shared_ptr<Character> tmp_character = board[src_coordinates.row][src_coordinates.col];
+
+        std::shared_ptr<Character> tmp_character = board.at(src_coordinates);
         if (!tmp_character->legalMove(GridPoint::distance(src_coordinates, dst_coordinates)))
         {
             throw MoveTooFar();
         }
-        checkCellOccupied(dst_coordinates);
 
-        board[src_coordinates.row][src_coordinates.col] = nullptr;
-        board[dst_coordinates.row][dst_coordinates.col] = tmp_character;
+        checkCellOccupied(dst_coordinates);
+        board.erase(src_coordinates);
+        board[dst_coordinates] = tmp_character;
     }
 
     void Game::attack(const GridPoint &src_coordinates, const GridPoint &dst_coordinates)
@@ -116,7 +138,7 @@ namespace mtm
         checkCellInBoard(dst_coordinates);
         checkcellIsntEmpty(src_coordinates);
 
-        std::shared_ptr<Character> character = board[src_coordinates.row][src_coordinates.col];
+        std::shared_ptr<Character> character = board.at(src_coordinates);
         character->attack(board, src_coordinates, dst_coordinates);
     }
     void Game::reload(const GridPoint &coordinates)
@@ -124,27 +146,30 @@ namespace mtm
         checkCellInBoard(coordinates);
         checkcellIsntEmpty(coordinates);
 
-        std::shared_ptr<Character> character = board[coordinates.row][coordinates.col];
+        std::shared_ptr<Character> character = board.at(coordinates);
         character->reload();
     }
     bool Game::isOver(Team *winningTeam) const
     {
         Team first_found;
-        for (std::vector<std::shared_ptr<Character>> row : board)
+        bool found_player = false;
+        std::shared_ptr<Character> character;
+        for (std::map<GridPoint, std::shared_ptr<Character>, classcomp>::const_iterator itr = board.begin();
+             itr != board.end(); ++itr)
         {
-            for (std::shared_ptr<Character> character : row)
+            character = itr->second;
+            if (!found_player)
             {
-                if (!first_found && character)
-                {
-                    first_found = character->isEnemy(Team::CROSSFITTERS) ? Team::POWERLIFTERS : Team::CROSSFITTERS;
-                }
-                else if (first_found && character && character->isEnemy(first_found))
-                {
-                    return false;
-                }
+                found_player = true;
+                first_found = character->isEnemy(Team::CROSSFITTERS) ? Team::POWERLIFTERS : Team::CROSSFITTERS;
+            }
+            else if (found_player && character->isEnemy(first_found))
+            {
+                return false;
             }
         }
-        if (first_found)
+
+        if (found_player)
         {
             if (winningTeam)
             {
@@ -162,27 +187,37 @@ namespace mtm
     {
         std::string output = "";
         char current;
-        for (std::vector<std::shared_ptr<Character>> row : board)
+        std::shared_ptr<Character> character;
+        for (int i = 0; i < height; ++i)
         {
-            for (std::shared_ptr<Character> character : row)
+            for (int j = 0; j < width; ++j)
             {
-                switch (character->getType())
+                try
                 {
-                case (CharacterType::SOLDIER):
-                    current = SOLDIER_CHAR;
-                    break;
-                case (CharacterType::SNIPER):
-                    current = SNIPER_CHAR;
-                    break;
-                case (CharacterType::MEDIC):
-                    current = MEDIC_CHAR;
-                    break;
-                default:
-                    break;
+                    character = board.at(GridPoint(i, j));
+                    switch (character->getType())
+                    {
+                    case (CharacterType::SOLDIER):
+                        current = SOLDIER_CHAR;
+                        break;
+                    case (CharacterType::SNIPER):
+                        current = SNIPER_CHAR;
+                        break;
+                    case (CharacterType::MEDIC):
+                        current = MEDIC_CHAR;
+                        break;
+                    default:
+                        break;
+                    }
+
+                    if (character->isEnemy(Team::CROSSFITTERS))
+                    {
+                        current = toupper(current);
+                    }
                 }
-                if (character->isEnemy(Team::CROSSFITTERS))
+                catch (const std::out_of_range &e)
                 {
-                    current = toupper(current);
+                    current = EMPTY_CHAR;
                 }
                 output.push_back(current);
             }
@@ -193,8 +228,7 @@ namespace mtm
     std::ostream &operator<<(std::ostream &os, const Game &game)
     {
         std::string out = game.toString();
-        printGameBoard(os, &out.at(0), &out.at(out.length()), game.width);
+        printGameBoard(os, &*out.begin(), &*out.end(), game.width);
         return os;
     }
-
 }

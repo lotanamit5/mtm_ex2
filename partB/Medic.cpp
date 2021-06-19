@@ -4,10 +4,10 @@
 #include "Medic.h"
 
 #include <memory>
-#include <vector>
+#include <map>
 
 #define MEDIC_MOVEMENT_RANGE 5
-#define MEDIC_RELOAD_AMOUNT 3
+#define MEDIC_RELOAD_AMOUNT 5
 #define MEDIC_ATTACK_COST 1
 
 namespace mtm
@@ -21,7 +21,7 @@ namespace mtm
         return ptr;
     }
 
-    void Medic::attack(std::vector<std::vector<std::shared_ptr<Character>>> &board,
+    void Medic::attack(std::map<GridPoint, std::shared_ptr<Character>, classcomp> &board,
                        const GridPoint &src_coordinates, const GridPoint &dst_coordinates)
     {
         attackInRange(src_coordinates, dst_coordinates);
@@ -34,18 +34,28 @@ namespace mtm
             throw IllegalTarget();
         }
 
-        std::shared_ptr<Character> target = board.at(dst_coordinates.row).at(dst_coordinates.col);
-        if (!target)
+        if (board.find(dst_coordinates) == board.end())
         {
             throw IllegalTarget();
         }
-
-        if (target->takeDamage(target->isEnemy(team) ? power : -power))
+        else
         {
-            target.reset();
-            ammo -= attack_cost;
+            std::shared_ptr<Character> target = board.at(dst_coordinates);
+            if (target->isEnemy(team))
+            {
+                if (target->takeDamage(power))
+                {
+                    board.erase(dst_coordinates);
+                }
+                ammo -= attack_cost;
+            }
+            else
+            {
+                target->takeDamage(-power);
+            }
         }
     }
+
     CharacterType Medic::getType()
     {
         return CharacterType::MEDIC;

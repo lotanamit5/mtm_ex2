@@ -1,12 +1,21 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-#include "Auxiliaries.h"
-#include <vector>
+#include <map>
 #include <memory>
+
+#include "Auxiliaries.h"
 
 namespace mtm
 {
+    struct classcomp
+    {
+        bool operator()(const GridPoint &g1, const GridPoint &g2) const
+        {
+            return (g1.row == g2.row) ? g1.col < g2.col : g1.row < g2.row;
+        }
+    };
+
     class Character
     {
     protected:
@@ -23,16 +32,15 @@ namespace mtm
         virtual ~Character() = default;
 
         virtual std::shared_ptr<Character> clone() const = 0;
-        virtual void attack(std::vector<std::vector<std::shared_ptr<Character>>> &board,
-                            const GridPoint &src_coordinates, const GridPoint &dst_coordinates) = 0;
+        virtual void attack(std::map<GridPoint, std::shared_ptr<Character>, classcomp> &board, const GridPoint &src_coordinates, const GridPoint &dst_coordinates) = 0;
         virtual void attackInRange(const GridPoint &src_coordinates, const GridPoint &dst_coordinates);
         virtual CharacterType getType() = 0;
         void reload();
         bool isEnemy(Team team);
         bool takeDamage(int damage);
         bool legalMove(int length);
-        // virtual void legalAttack(std::vector<std::vector<std::shared_ptr<Character>>> &board,
-        //                          const GridPoint &src_coordinates, const GridPoint &dst_coordinates) = 0;
+
+        friend class Game;
     };
 }
 #endif

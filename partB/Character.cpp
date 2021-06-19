@@ -1,6 +1,6 @@
-#include "Character.h"
 #include "Auxiliaries.h"
 #include "Exceptions.h"
+#include "Character.h"
 
 namespace mtm
 {
@@ -10,13 +10,13 @@ namespace mtm
   {
     if (health <= 0 || ammo < 0 || range < 0 || power < 0)
     {
-      throw illegalArgument();
+      throw IllegalArgument();
     }
     else
     {
       this->health = health;
       this->ammo = ammo;
-      this->range = health;
+      this->range = range;
       this->power = power;
     }
   }
@@ -36,7 +36,7 @@ namespace mtm
   }
   bool Character::isEnemy(Team team)
   {
-    return this->team == team;
+    return this->team != team;
   }
   bool Character::legalMove(int length)
   {
